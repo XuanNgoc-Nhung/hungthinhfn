@@ -25,6 +25,9 @@ class UserController extends Controller
     public function getBankInfo(){
         return view('user.bank-info');
     }
+    public function getUserInfo(){
+        return view('user.user-info');
+    }
     public function dangKyTaiKhoan(Request $request){
         Log::info('Đăng ký tài khoản:');
         $check = User::where('phone',$request->phone)->count();

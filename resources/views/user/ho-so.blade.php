@@ -61,7 +61,12 @@
                                 <span class="ant-typography tab-text" style="color: rgb(255, 255, 255);">Liên hệ tư vấn - hỗ trợ</span>
                             </div>
                             <div class="log-out">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                                 <button type="button" class="ant-btn ant-btn-default log-out-btn"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
                                         style="display: flex; justify-content: center; align-items: center;"><span
                                         role="img" aria-label="logout" class="anticon anticon-logout"
                                         style="font-size: 25px; color: rgb(255, 255, 255);"><svg viewBox="64 64 896 896"

@@ -12,6 +12,7 @@
 */
 
 
+Auth::routes();
 Route::group(['prefix' => '/','middleware' => ['checkLogin']], function(){
     Route::get('/', 'UserController@getHome')->name('user.home');
     Route::get('/ho-so', 'UserController@getPageHoSo')->name('user.hoSo');
