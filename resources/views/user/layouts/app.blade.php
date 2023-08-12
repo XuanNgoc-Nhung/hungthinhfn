@@ -52,6 +52,7 @@
 <script src="https://hungthinhfn.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://hungthinhfn.com/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 
+@yield('js_location')
 <script>
     console.log('AHihi')
     $( document ).ready(function() {
@@ -67,6 +68,5 @@
         autoplayTimeout:1500,
     })
 </script>
-@yield('js_location')
 </body>
 </html>

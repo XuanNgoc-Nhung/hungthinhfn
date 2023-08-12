@@ -69,8 +69,8 @@
                         </div>
                     </div>
                     <div style="position: relative; padding-left: 20px; padding-right: 20px;">
-                        <div><span id="carousel_prev_9z3w7k2k6bb" style="display: none;"></span>
-                            <div id="carousel_cyak2kiu46i" class="owl-carousel owl-theme owl-loaded owl-drag">
+                        <div>
+                            <div class="owl-carousel owl-theme owl-loaded owl-drag">
                                 <div class="owl-stage-outer">
                                     <div class="owl-stage"
                                          style="transform: translate3d(-1719px, 0px, 0px); transition: all 0.25s ease 0s; width: 4011px;">
@@ -90,12 +90,7 @@
                                                 src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png"></div>
                                     </div>
                                 </div>
-                                <div class="owl-nav disabled">
-                                    <div class="owl-prev">next</div>
-                                    <div class="owl-next">prev</div>
-                                </div>
                             </div>
-                            <span id="carousel_next_mv94bemo4k"></span></div>
                     </div>
                     <div style="display: flex; justify-content: center; min-height: 100px; margin-top: 20px;">
                         <div class="ant-image"
