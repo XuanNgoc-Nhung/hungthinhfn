@@ -1,3 +1,6 @@
 {
-    "/js/user-dang-ky.js": "/js/user-dang-ky.js"
+    "/js/user-dang-ky.js": "/js/user-dang-ky.js",
+    "/js/user-dang-ky-khoan-vay.js": "/js/user-dang-ky-khoan-vay.js",
+    "/js/user-dang-nhap.js": "/js/user-dang-nhap.js",
+    "/js/user-xac-minh.js": "/js/user-xac-minh.js"
 }

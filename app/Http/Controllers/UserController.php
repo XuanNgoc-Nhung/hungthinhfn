@@ -28,6 +28,33 @@ class UserController extends Controller
     public function getUserInfo(){
         return view('user.user-info');
     }
+    public function getDangKyKhoanVay(){
+        return view('user.dang-ky-khoan-vay');
+    }
+    public function getXacMinhThongTin(){
+        return view('user.xac-minh');
+    }
+    public function dangNhapTaiKhoan(Request $request){
+        $credentials = array(
+            'phone' => $request->phone,
+            'password' => $request->pass
+        );
+        $auth = Auth::attempt($credentials);
+        if ($auth) {
+            $res = [
+                'rc' => '0',
+                'rd' => 'Đăng nhập thành công',
+                'data' => $auth
+            ];
+        } else {
+            $res = [
+                'rc' => '-1',
+                'rd' => 'Tài khoản hoặc mật khẩu không chính xác ',
+            ];
+        }
+        return json_encode($res);
+
+    }
     public function dangKyTaiKhoan(Request $request){
         Log::info('Đăng ký tài khoản:');
         $check = User::where('phone',$request->phone)->count();

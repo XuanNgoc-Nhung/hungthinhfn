@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3527,10 +3527,10 @@ function mergeFn (a, b) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3554,10 +3554,30 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
   components: {},
   data: function data() {
     return {
-      thongTinDangKy: {
-        phone: '',
-        pass: '',
-        rePass: ''
+      danh_sach_thoi_han_vay: [{
+        name: '6 tháng',
+        value: 6
+      }, {
+        name: '12 tháng',
+        value: 12
+      }, {
+        name: '24 tháng',
+        value: 24
+      }, {
+        name: '36 tháng',
+        value: 36
+      }, {
+        name: '48 tháng',
+        value: 48
+      }, {
+        name: '60 tháng',
+        value: 60
+      }],
+      thongTinVay: {
+        traKyDau: 0,
+        laiSuat: 0.8,
+        thoiHan: 6,
+        soTien: 0
       }
     };
   },
@@ -3565,6 +3585,18 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
     console.log('Mounted Configs...');
   },
   methods: {
+    tinhTienHangThang: function tinhTienHangThang() {
+      console.log('tinhTienHangThang:');
+      this.thongTinVay.soTien = parseInt(this.thongTinVay.soTien);
+      console.log(this.thongTinVay.soTien);
+      console.log(this.thongTinVay.thoiHan);
+      var moiThang = parseInt(this.thongTinVay.soTien) / this.thongTinVay.thoiHan;
+      console.log('mỗi tháng trả:' + moiThang);
+      var tienLai = moiThang * this.thongTinVay.laiSuat / 100;
+      this.thongTinVay.traKyDau = parseInt(moiThang + tienLai);
+      console.log('Tiền lãi:' + tienLai);
+      console.log('Trả mỗi kỳ:' + this.thongTinVay.traKyDau);
+    },
     dangKy: function dangKy() {
       var _this = this;
       console.log('Đăng ký:');
@@ -3624,10 +3656,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&":
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666& ***!
-  \********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3639,151 +3671,233 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "form-body"
-  }, [_c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.thongTinDangKy.phone,
-      expression: "thongTinDangKy.phone"
-    }],
-    staticClass: "ant-input ant-input-lg input",
     staticStyle: {
-      "border-radius": "50px !important",
-      height: "46px",
-      "line-height": "46px",
-      "border-color": "rgb(54, 124, 76) !important"
-    },
-    attrs: {
-      autocomplete: "off",
-      placeholder: "Nhập số điện thoại...",
-      type: "text",
-      value: ""
-    },
-    domProps: {
-      value: _vm.thongTinDangKy.phone
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "phone", $event.target.value);
-      }
+      "padding-bottom": "80px"
     }
-  }), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.thongTinDangKy.pass,
-      expression: "thongTinDangKy.pass"
-    }],
-    staticClass: "ant-input ant-input-lg input",
+  }, [_c("div", {
+    staticClass: "fadein"
+  }, [_c("div", {
+    staticClass: "container",
     staticStyle: {
-      "border-radius": "50px !important",
-      height: "46px",
-      "line-height": "46px",
-      "border-color": "rgb(54, 124, 76) !important"
-    },
-    attrs: {
-      autocomplete: "off",
-      type: "password",
-      placeholder: "Nhập mật khẩu..."
-    },
-    domProps: {
-      value: _vm.thongTinDangKy.pass
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "pass", $event.target.value);
-      }
+      padding: "0px !important"
     }
-  }), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.thongTinDangKy.rePass,
-      expression: "thongTinDangKy.rePass"
-    }],
-    staticClass: "ant-input ant-input-lg input",
+  }, [_c("div", {
+    staticClass: "head"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "vay-header",
     staticStyle: {
-      "border-radius": "50px !important",
-      height: "46px",
-      "line-height": "46px",
-      "border-color": "rgb(54, 124, 76) !important"
-    },
-    attrs: {
-      autocomplete: "off",
-      type: "password",
-      placeholder: "Nhắc lại mật khẩu.."
-    },
-    domProps: {
-      value: _vm.thongTinDangKy.rePass
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "rePass", $event.target.value);
-      }
+      background: "rgb(54, 124, 76)"
     }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "ant-btn ant-btn-default ant-btn-lg login-btn",
+  }, [_c("div", [_c("span", {
+    staticClass: "anticon anticon-left arrow-icon",
     staticStyle: {
-      width: "calc(100% - 80px) !important",
-      "border-radius": "50px !important",
-      background: "rgb(54, 124, 76) !important",
-      opacity: "1 !important"
+      color: "rgb(255, 255, 255)"
     },
     attrs: {
-      type: "button"
+      role: "img",
+      "aria-label": "left"
+    }
+  }, [_c("svg", {
+    attrs: {
+      viewBox: "64 64 896 896",
+      focusable: "false",
+      "data-icon": "left",
+      width: "1em",
+      height: "1em",
+      fill: "currentColor",
+      "aria-hidden": "true"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+    }
+  })])])]), _vm._v(" "), _c("span", {
+    staticClass: "ant-typography header-text",
+    staticStyle: {
+      color: "rgb(255, 255, 255)"
+    }
+  }, [_vm._v("Chọn khoản vay")]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
+    staticClass: "vay-body"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "input-container"
+  }, [_c("el-input", {
+    attrs: {
+      placeholder: "Nhập số tiền cần vay",
+      type: "number",
+      min: 20000000,
+      max: 500000000
     },
     on: {
-      click: function click($event) {
+      input: _vm.tinhTienHangThang
+    },
+    model: {
+      value: _vm.thongTinVay.soTien,
+      callback: function callback($$v) {
+        _vm.$set(_vm.thongTinVay, "soTien", $$v);
+      },
+      expression: "thongTinVay.soTien"
+    }
+  })], 1), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "month-container",
+    staticStyle: {
+      padding: "10px"
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Chọn thời hạn vay")]), _vm._v(" "), _c("div", {
+    staticClass: "ant-select ant-select-enabled",
+    staticStyle: {
+      "border-radius": "100px",
+      "min-width": "150px"
+    },
+    attrs: {
+      tabindex: "0"
+    }
+  }, [_c("el-select", {
+    attrs: {
+      placeholder: "Chọn"
+    },
+    on: {
+      change: function change($event) {
         $event.preventDefault();
-        return _vm.dangKy();
+        return _vm.tinhTienHangThang.apply(null, arguments);
       }
+    },
+    model: {
+      value: _vm.thongTinVay.thoiHan,
+      callback: function callback($$v) {
+        _vm.$set(_vm.thongTinVay, "thoiHan", $$v);
+      },
+      expression: "thongTinVay.thoiHan"
     }
+  }, _vm._l(_vm.danh_sach_thoi_han_vay, function (item) {
+    return _c("el-option", {
+      key: item.value,
+      attrs: {
+        label: item.name,
+        value: item.value
+      }
+    });
+  }), 1)], 1)])]), _vm._v(" "), _c("div", {
+    staticClass: "form-container"
+  }, [_c("div", {
+    staticClass: "information-form"
+  }, [_c("span", {
+    staticClass: "ant-typography form-title",
+    staticStyle: {
+      color: "rgb(255, 255, 255)",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Thông tin khoản vay")]), _vm._v(" "), _c("div", {
+    staticClass: "information"
+  }, [_c("div", {
+    staticClass: "details-information"
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Số tiền")]), _c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v(_vm._s(parseInt(_vm.thongTinVay.soTien).toLocaleString()) + " đ")])]), _vm._v(" "), _c("div", {
+    staticClass: "details-information"
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Thời hạn vay")]), _c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v(" " + _vm._s(_vm.thongTinVay.thoiHan) + " tháng")])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "old-debt-text"
   }, [_c("span", {
     staticClass: "ant-typography",
     staticStyle: {
-      color: "rgb(255, 255, 255)",
-      "font-weight": "400"
+      flex: "2 1 0%",
+      color: "rgb(102, 102, 102)",
+      "font-size": "14px"
     }
-  }, [_vm._v("Đăng ký")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
+  }, [_vm._v("Trả nợ kì đầu")]), _c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      flex: "2 1 0%",
+      color: "rgb(62, 62, 62)",
+      "font-size": "16px"
+    }
+  }, [_vm._v(_vm._s(parseInt(_vm.thongTinVay.traKyDau).toLocaleString()) + " VND")])]), _vm._v(" "), _c("div", {
+    staticClass: "old-debt-text"
+  }, [_c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      flex: "2 1 0%",
+      color: "rgb(102, 102, 102)",
+      "font-size": "14px"
+    }
+  }, [_vm._v("Lãi suất hàng tháng")]), _c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      flex: "2 1 0%",
+      color: "rgb(62, 62, 62)",
+      "font-size": "16px"
+    }
+  }, [_vm._v(_vm._s(_vm.thongTinVay.laiSuat.toFixed(2)) + "%")])]), _vm._v(" "), _vm._m(4)]), _vm._v(" "), _vm._m(5)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("br"), _c("span", {
-    staticClass: "ant-typography",
+  return _c("div", {
+    staticClass: "title-container"
+  }, [_c("span", {
+    staticClass: "ant-typography title",
     staticStyle: {
-      padding: "3px 0px",
-      color: "rgb(51, 51, 51)",
-      "font-weight": "500"
+      color: "rgb(255, 255, 255)"
     }
-  }, [_vm._v("Độ dài mật khẩu từ 6 - 20 ký tự")]), _c("br"), _c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      padding: "3px 0px",
-      color: "rgb(51, 51, 51)",
-      "font-weight": "500"
-    }
-  }, [_vm._v("Ví dụ mật khẩu: 123456")])]);
+  }, [_vm._v("Số tiền vay")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "form-footer"
+    staticClass: "subtitle"
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Từ 20.000.000đ")]), _c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Đến 500.000.000đ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "details-information"
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Ngày vay")]), _c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("12/8/2023")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "details-information"
+  }, [_c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Hình thức thanh toán")]), _c("span", {
+    staticClass: "ant-typography"
+  }, [_vm._v("Trả góp mỗi tháng")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "old-debt-text"
   }, [_c("a", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      "font-size": "15px",
-      color: "rgb(88, 88, 90)",
-      "font-weight": "500"
-    },
+    staticClass: "ant-typography"
+  }, [_vm._v("Chi tiết trả nợ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "btn-container"
+  }, [_c("button", {
+    staticClass: "ant-btn ant-btn-default confirm-btn",
     attrs: {
-      href: "/dang-nhap"
+      type: "button"
     }
-  }, [_vm._v("Đã\n        có tài\n        khoản ? 👉 Đăng nhập ngay")])]);
+  }, [_c("span", {
+    staticClass: "ant-typography btn-title"
+  }, [_vm._v("Xác nhận khoản vay")])])]);
 }];
 render._withStripped = true;
 
@@ -89324,17 +89438,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue ***!
-  \*************************************************/
+/***/ "./resources/js/components/user/dangKyKhoanVay.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/user/dangKyKhoanVay.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dangKy.vue?vue&type=template&id=d0ed4666& */ "./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&");
-/* harmony import */ var _dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dangKy.vue?vue&type=script&lang=js& */ "./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&");
+/* harmony import */ var _dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dangKyKhoanVay.vue?vue&type=template&id=156ce4bc& */ "./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc&");
+/* harmony import */ var _dangKyKhoanVay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dangKyKhoanVay.vue?vue&type=script&lang=js& */ "./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -89344,9 +89458,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _dangKyKhoanVay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -89356,66 +89470,66 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/user/dangKy.vue"
+component.options.__file = "resources/js/components/user/dangKyKhoanVay.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKy.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKyKhoanVay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKyKhoanVay.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKyKhoanVay_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666& ***!
-  \********************************************************************************/
+/***/ "./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKy.vue?vue&type=template&id=d0ed4666& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKyKhoanVay.vue?vue&type=template&id=156ce4bc& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKyKhoanVay.vue?vue&type=template&id=156ce4bc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKyKhoanVay_vue_vue_type_template_id_156ce4bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/user-dang-ky.js":
-/*!**************************************!*\
-  !*** ./resources/js/user-dang-ky.js ***!
-  \**************************************/
+/***/ "./resources/js/user-dang-ky-khoan-vay.js":
+/*!************************************************!*\
+  !*** ./resources/js/user-dang-ky-khoan-vay.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('dang-ky', __webpack_require__(/*! ./components/user/dangKy.vue */ "./resources/js/components/user/dangKy.vue")["default"]);
+Vue.component('dang-ky-khoan-vay', __webpack_require__(/*! ./components/user/dangKyKhoanVay.vue */ "./resources/js/components/user/dangKyKhoanVay.vue")["default"]);
 new Vue({
   el: '#app'
 });
 
 /***/ }),
 
-/***/ 0:
-/*!********************************************!*\
-  !*** multi ./resources/js/user-dang-ky.js ***!
-  \********************************************/
+/***/ 1:
+/*!******************************************************!*\
+  !*** multi ./resources/js/user-dang-ky-khoan-vay.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hungthinhfn\resources\js\user-dang-ky.js */"./resources/js/user-dang-ky.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\hungthinhfn\resources\js\user-dang-ky-khoan-vay.js */"./resources/js/user-dang-ky-khoan-vay.js");
 
 
 /***/ })

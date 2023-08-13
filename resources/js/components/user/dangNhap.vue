@@ -1,32 +1,21 @@
 <template>
-
     <div class="form-body">
         <input autocomplete="off" placeholder="Nhập số điện thoại..." type="text"
-               v-model="thongTinDangKy.phone"
+               v-model="thongTinDangNhap.phone"
                                   value="" class="ant-input ant-input-lg input"
                                   style="border-radius: 50px !important; height: 46px; line-height: 46px; border-color: rgb(54, 124, 76) !important;">
-        <input autocomplete="off" type="password" placeholder="Nhập mật khẩu..."
-               v-model="thongTinDangKy.pass"
+        <input autocomplete="off" type="password" v-model="thongTinDangNhap.pass" placeholder="Nhập mật khẩu..."
                class="ant-input ant-input-lg input"
                style="border-radius: 50px !important; height: 46px; line-height: 46px; border-color: rgb(54, 124, 76) !important;">
-        <input autocomplete="off" type="password" placeholder="Nhắc lại mật khẩu.."
-               class="ant-input ant-input-lg input"
-               v-model="thongTinDangKy.rePass"
-               style="border-radius: 50px !important; height: 46px; line-height: 46px; border-color: rgb(54, 124, 76) !important;">
-        <button type="button" class="ant-btn ant-btn-default ant-btn-lg login-btn"
-                @click.prevent="dangKy()"
+        <button type="button" @click.prevent="dangNhapTaiKhoan()" class="ant-btn ant-btn-default ant-btn-lg login-btn"
                 style="width: calc(100% - 80px) !important; border-radius: 50px !important; background: rgb(54, 124, 76) !important; opacity: 1 !important;">
-            <span class="ant-typography" style="color: rgb(255, 255, 255); font-weight: 400;">Đăng ký</span>
+            <span class="ant-typography" style="color: rgb(255, 255, 255); font-weight: 400;">Đăng nhập</span>
         </button>
-        <div><br><span class="ant-typography"
-                       style="padding: 3px 0px; color: rgb(51, 51, 51); font-weight: 500;">Độ dài mật khẩu từ 6 - 20 ký tự</span><br><span
-            class="ant-typography"
-            style="padding: 3px 0px; color: rgb(51, 51, 51); font-weight: 500;">Ví dụ mật khẩu: 123456</span>
-        </div>
-        <div class="form-footer"><a class="ant-typography" href="/dang-nhap"
-                                    style="font-size: 15px; color: rgb(88, 88, 90); font-weight: 500;">Đã
+        <div class="form-footer"><a class="ant-typography"
+                                    href="/dang-ky"
+                                    style="font-size: 15px; color: rgb(88, 88, 90); font-weight: 500;">Chưa
             có tài
-            khoản ? 👉 Đăng nhập ngay</a></div>
+            khoản ? 👉 Đăng ký tài khoản mới</a></div>
     </div>
 </template>
 
@@ -46,30 +35,25 @@ export default {
     },
     data() {
         return {
-            thongTinDangKy:{
+            thongTinDangNhap:{
                 phone:'',
                 pass:'',
-                rePass:''
             }
         }
     },
     mounted() {
-        console.log('Mounted Configs...');
+        console.log('Mounted đăng nhập...');
     },
     methods: {
-        dangKy(){
+        dangNhapTaiKhoan(){
             console.log('Đăng ký:')
-            if(this.thongTinDangKy.phone==''||this.thongTinDangKy.pass==''||this.thongTinDangKy.rePass==''){
+            if(this.thongTinDangNhap.phone==''||this.thongTinDangNhap.pass==''){
                 this.thongBao('error','Không được để trống thông tin')
                 return;
             }
-            if(this.thongTinDangKy.pass!=this.thongTinDangKy.rePass){
-                this.thongBao('error','Mật khẩu không trùng nhau. Hãy xác nhận lại mật khẩu của bạn');
-                return
-            }
-            console.log(this.thongTinDangKy)
-            let url = '/dang-ky-tai-khoan'
-            rest_api.post(url, this.thongTinDangKy).then(
+            console.log(this.thongTinDangNhap)
+            let url = '/dang-nhap-tai-khoan'
+            rest_api.post(url, this.thongTinDangNhap).then(
                 response => {
                     console.log('Res đăng ký:')
                     console.log(response)

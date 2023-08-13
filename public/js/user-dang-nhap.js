@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3527,10 +3527,10 @@ function mergeFn (a, b) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3554,31 +3554,26 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
   components: {},
   data: function data() {
     return {
-      thongTinDangKy: {
+      thongTinDangNhap: {
         phone: '',
-        pass: '',
-        rePass: ''
+        pass: ''
       }
     };
   },
   mounted: function mounted() {
-    console.log('Mounted Configs...');
+    console.log('Mounted đăng nhập...');
   },
   methods: {
-    dangKy: function dangKy() {
+    dangNhapTaiKhoan: function dangNhapTaiKhoan() {
       var _this = this;
       console.log('Đăng ký:');
-      if (this.thongTinDangKy.phone == '' || this.thongTinDangKy.pass == '' || this.thongTinDangKy.rePass == '') {
+      if (this.thongTinDangNhap.phone == '' || this.thongTinDangNhap.pass == '') {
         this.thongBao('error', 'Không được để trống thông tin');
         return;
       }
-      if (this.thongTinDangKy.pass != this.thongTinDangKy.rePass) {
-        this.thongBao('error', 'Mật khẩu không trùng nhau. Hãy xác nhận lại mật khẩu của bạn');
-        return;
-      }
-      console.log(this.thongTinDangKy);
-      var url = '/dang-ky-tai-khoan';
-      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post(url, this.thongTinDangKy).then(function (response) {
+      console.log(this.thongTinDangNhap);
+      var url = '/dang-nhap-tai-khoan';
+      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post(url, this.thongTinDangNhap).then(function (response) {
         console.log('Res đăng ký:');
         console.log(response);
         if (response.data.rc == 0) {
@@ -3624,10 +3619,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&":
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666& ***!
-  \********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3644,8 +3639,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.thongTinDangKy.phone,
-      expression: "thongTinDangKy.phone"
+      value: _vm.thongTinDangNhap.phone,
+      expression: "thongTinDangNhap.phone"
     }],
     staticClass: "ant-input ant-input-lg input",
     staticStyle: {
@@ -3661,20 +3656,20 @@ var render = function render() {
       value: ""
     },
     domProps: {
-      value: _vm.thongTinDangKy.phone
+      value: _vm.thongTinDangNhap.phone
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "phone", $event.target.value);
+        _vm.$set(_vm.thongTinDangNhap, "phone", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.thongTinDangKy.pass,
-      expression: "thongTinDangKy.pass"
+      value: _vm.thongTinDangNhap.pass,
+      expression: "thongTinDangNhap.pass"
     }],
     staticClass: "ant-input ant-input-lg input",
     staticStyle: {
@@ -3689,40 +3684,12 @@ var render = function render() {
       placeholder: "Nhập mật khẩu..."
     },
     domProps: {
-      value: _vm.thongTinDangKy.pass
+      value: _vm.thongTinDangNhap.pass
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "pass", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.thongTinDangKy.rePass,
-      expression: "thongTinDangKy.rePass"
-    }],
-    staticClass: "ant-input ant-input-lg input",
-    staticStyle: {
-      "border-radius": "50px !important",
-      height: "46px",
-      "line-height": "46px",
-      "border-color": "rgb(54, 124, 76) !important"
-    },
-    attrs: {
-      autocomplete: "off",
-      type: "password",
-      placeholder: "Nhắc lại mật khẩu.."
-    },
-    domProps: {
-      value: _vm.thongTinDangKy.rePass
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.thongTinDangKy, "rePass", $event.target.value);
+        _vm.$set(_vm.thongTinDangNhap, "pass", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("button", {
@@ -3739,7 +3706,7 @@ var render = function render() {
     on: {
       click: function click($event) {
         $event.preventDefault();
-        return _vm.dangKy();
+        return _vm.dangNhapTaiKhoan();
       }
     }
   }, [_c("span", {
@@ -3748,27 +3715,9 @@ var render = function render() {
       color: "rgb(255, 255, 255)",
       "font-weight": "400"
     }
-  }, [_vm._v("Đăng ký")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
+  }, [_vm._v("Đăng nhập")])]), _vm._v(" "), _vm._m(0)]);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("br"), _c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      padding: "3px 0px",
-      color: "rgb(51, 51, 51)",
-      "font-weight": "500"
-    }
-  }, [_vm._v("Độ dài mật khẩu từ 6 - 20 ký tự")]), _c("br"), _c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      padding: "3px 0px",
-      color: "rgb(51, 51, 51)",
-      "font-weight": "500"
-    }
-  }, [_vm._v("Ví dụ mật khẩu: 123456")])]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
@@ -3781,9 +3730,9 @@ var staticRenderFns = [function () {
       "font-weight": "500"
     },
     attrs: {
-      href: "/dang-nhap"
+      href: "/dang-ky"
     }
-  }, [_vm._v("Đã\n        có tài\n        khoản ? 👉 Đăng nhập ngay")])]);
+  }, [_vm._v("Chưa\n        có tài\n        khoản ? 👉 Đăng ký tài khoản mới")])]);
 }];
 render._withStripped = true;
 
@@ -89324,17 +89273,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue ***!
-  \*************************************************/
+/***/ "./resources/js/components/user/dangNhap.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/user/dangNhap.vue ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dangKy.vue?vue&type=template&id=d0ed4666& */ "./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&");
-/* harmony import */ var _dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dangKy.vue?vue&type=script&lang=js& */ "./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&");
+/* harmony import */ var _dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dangNhap.vue?vue&type=template&id=34dcd0f0& */ "./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0&");
+/* harmony import */ var _dangNhap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dangNhap.vue?vue&type=script&lang=js& */ "./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -89344,9 +89293,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _dangNhap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -89356,66 +89305,66 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/user/dangKy.vue"
+component.options.__file = "resources/js/components/user/dangNhap.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKy.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangNhap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangNhap.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangNhap.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_dangNhap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666& ***!
-  \********************************************************************************/
+/***/ "./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangKy.vue?vue&type=template&id=d0ed4666& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangKy.vue?vue&type=template&id=d0ed4666&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../node_modules/vue-loader/lib??vue-loader-options!./dangNhap.vue?vue&type=template&id=34dcd0f0& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/dangNhap.vue?vue&type=template&id=34dcd0f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangKy_vue_vue_type_template_id_d0ed4666___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_dangNhap_vue_vue_type_template_id_34dcd0f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/user-dang-ky.js":
-/*!**************************************!*\
-  !*** ./resources/js/user-dang-ky.js ***!
-  \**************************************/
+/***/ "./resources/js/user-dang-nhap.js":
+/*!****************************************!*\
+  !*** ./resources/js/user-dang-nhap.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('dang-ky', __webpack_require__(/*! ./components/user/dangKy.vue */ "./resources/js/components/user/dangKy.vue")["default"]);
+Vue.component('dang-nhap', __webpack_require__(/*! ./components/user/dangNhap.vue */ "./resources/js/components/user/dangNhap.vue")["default"]);
 new Vue({
   el: '#app'
 });
 
 /***/ }),
 
-/***/ 0:
-/*!********************************************!*\
-  !*** multi ./resources/js/user-dang-ky.js ***!
-  \********************************************/
+/***/ 2:
+/*!**********************************************!*\
+  !*** multi ./resources/js/user-dang-nhap.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hungthinhfn\resources\js\user-dang-ky.js */"./resources/js/user-dang-ky.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\hungthinhfn\resources\js\user-dang-nhap.js */"./resources/js/user-dang-nhap.js");
 
 
 /***/ })
