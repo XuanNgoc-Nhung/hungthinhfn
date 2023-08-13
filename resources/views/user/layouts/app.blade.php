@@ -28,7 +28,7 @@
 <div class="translate-tooltip-mtz translator-hidden">
     <div class="header">
         <div class="header-controls">
-            Translator
+{{--            Translator--}}
         </div>
         <div class="header-controls">
             <span class="support"></span>

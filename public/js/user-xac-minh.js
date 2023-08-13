@@ -3596,6 +3596,26 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
     console.log('Mounted Configs...');
   },
   methods: {
+    uploadXacMinh: function uploadXacMinh() {
+      var _this = this;
+      console.log('Upload Xác Minh');
+      if (!this.selectedFile.matTruoc || !this.selectedFile.matSau || !this.selectedFile.chanDung) {
+        this.thongBao('error', 'Vui lòng bổ sung thông tin.');
+        return;
+      }
+      var dataForm = new FormData();
+      dataForm.append('matTruoc', this.selectedFile.matTruoc, this.selectedFile.matTruoc.name);
+      dataForm.append('matSau', this.selectedFile.matSau, this.selectedFile.matTruoc.matSau);
+      dataForm.append('chanDung', this.selectedFile.chanDung, this.selectedFile.matTruoc.chanDung);
+      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/xac-minh-hinh-anh', dataForm).then(function (response) {
+        if (response && response.data.rc == 0) {
+          window.open("/xac-minh-thong-tin-ca-nhan", "_self");
+        } else {
+          _this.thongBao('error', response.data.rd);
+        }
+        _this.loading.status = false;
+      })["catch"](function (e) {});
+    },
     uploadFileMatTruoc: function uploadFileMatTruoc(e) {
       this.selectedFile.matTruoc = e.target.files[0];
       var file = e.target.files[0];
@@ -3630,7 +3650,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
       console.log('Trả mỗi kỳ:' + this.thongTinVay.traKyDau);
     },
     dangKy: function dangKy() {
-      var _this = this;
+      var _this2 = this;
       console.log('Đăng ký:');
       if (this.thongTinDangKy.phone == '' || this.thongTinDangKy.pass == '' || this.thongTinDangKy.rePass == '') {
         this.thongBao('error', 'Không được để trống thông tin');
@@ -3648,9 +3668,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
         if (response.data.rc == 0) {
           window.open("/", "_self");
         } else {
-          _this.thongBao('error', response.data.rd);
+          _this2.thongBao('error', response.data.rd);
         }
-        _this.loading.status = false;
+        _this2.loading.status = false;
       })["catch"](function (e) {});
     },
     thongBao: function thongBao(typeNoty, msgNoty) {
@@ -3715,6 +3735,10 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "header-container"
+  }, [_c("a", {
+    attrs: {
+      href: "/dang-ky-khoan-vay"
+    }
   }, [_c("span", {
     staticClass: "anticon anticon-left arrow-icon",
     attrs: {
@@ -3736,7 +3760,7 @@ var render = function render() {
     attrs: {
       d: "M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
     }
-  })])]), _vm._v(" "), _c("span", {
+  })])])]), _vm._v(" "), _c("span", {
     staticClass: "ant-typography header-title"
   }, [_vm._v("Xác minh")]), _vm._v(" "), _c("div")]), _vm._v(" "), _c("div", {
     staticClass: "user-img-container",
@@ -3916,7 +3940,22 @@ var render = function render() {
       "font-weight": "700",
       "font-size": "16px"
     }
-  }, [_vm._v("Ảnh chân dung")])]), _vm._v(" "), _vm._m(1)])])])]);
+  }, [_vm._v("Ảnh chân dung")])]), _vm._v(" "), _c("div", {
+    staticClass: "confirm-div",
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.uploadXacMinh();
+      }
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      color: "rgb(255, 255, 255)",
+      "font-weight": "700",
+      "font-size": "17px"
+    }
+  }, [_vm._v("Tiếp tục")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3928,19 +3967,6 @@ var staticRenderFns = [function () {
       padding: "5px"
     }
   }, [_c("strong", [_vm._v("Chụp ảnh định danh KYC")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "confirm-div"
-  }, [_c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      color: "rgb(255, 255, 255)",
-      "font-weight": "700",
-      "font-size": "17px"
-    }
-  }, [_vm._v("Tiếp tục")])]);
 }];
 render._withStripped = true;
 

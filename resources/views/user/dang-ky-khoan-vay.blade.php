@@ -1,6 +1,6 @@
 @extends("user.layouts.app")
 @section("title")
-    <title>Đăng ký</title>
+    <title>Đăng ký khoản vay</title>
 @endsection
 @section("content")
     <div id="app">

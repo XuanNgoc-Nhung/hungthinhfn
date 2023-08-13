@@ -12,11 +12,19 @@
                                 class="ant-typography text-head">{{Auth::user()->phone}}</span></div>
                         <div style="margin-left: auto; padding-right: 20px;"><span class="ant-typography text-head">Tổng đài CSKH</span><br><span
                                 class="ant-typography text-head">Hotline: 02929990999</span></div>
-                        <div><span class="ant-badge"><span role="img" aria-label="bell" class="anticon anticon-bell"
-                                                           style="font-size: 20px; color: white;"><svg
-                                        viewBox="64 64 896 896" focusable="false" data-icon="bell" width="1em" height="1em"
+                        <div>
+                            <a href="/thong-bao">
+                            <span class="ant-badge">
+                                <span role="img" aria-label="bell" class="anticon anticon-bell"
+                                      style="font-size: 20px; color: white;">
+                                    <svg
+                                        viewBox="64 64 896 896" focusable="false" data-icon="bell" width="1em"
+                                        height="1em"
                                         fill="currentColor" aria-hidden="true"><path
-                                            d="M816 768h-24V428c0-141.1-104.3-257.8-240-277.2V112c0-22.1-17.9-40-40-40s-40 17.9-40 40v38.8C336.3 170.2 232 286.9 232 428v340h-24c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h216c0 61.8 50.2 112 112 112s112-50.2 112-112h216c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM512 888c-26.5 0-48-21.5-48-48h96c0 26.5-21.5 48-48 48z"></path></svg></span></span>
+                                            d="M816 768h-24V428c0-141.1-104.3-257.8-240-277.2V112c0-22.1-17.9-40-40-40s-40 17.9-40 40v38.8C336.3 170.2 232 286.9 232 428v340h-24c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h216c0 61.8 50.2 112 112 112s112-50.2 112-112h216c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM512 888c-26.5 0-48-21.5-48-48h96c0 26.5-21.5 48-48 48z"></path></svg>
+                                </span>
+                            </span>
+                            </a>
                         </div>
                     </div>
                     <div class="noti-text-container"><span
@@ -28,8 +36,10 @@
                                  style="border-radius: 10px; margin-bottom: 20px;"></div>
                     </div>
                     <a href="{{route('user.dangKyKhoanVay')}}" class="text-center">
-                        <button type="button" class="ant-btn ant-btn-default choose-btn" style="margin-top: 20px !important;">
-                            <span class="ant-typography" style="color: rgb(255, 255, 255); font-weight: bold; font-size: 20px;">Đăng ký khoản vay</span>
+                        <button type="button" class="ant-btn ant-btn-default choose-btn"
+                                style="margin-top: 20px !important;">
+                            <span class="ant-typography"
+                                  style="color: rgb(255, 255, 255); font-weight: bold; font-size: 20px;">Đăng ký khoản vay</span>
                         </button>
                     </a>
                     <div style="padding: 20px;">
@@ -39,7 +49,8 @@
                               style="flex: 1 1 0%; font-size: 16px; color: rgb(54, 124, 76); font-weight: 500;">Thủ tục vay nhanh chóng, đơn giản</span><span
                                 role="img" aria-label="alert" class="anticon anticon-alert"
                                 style="font-size: 20px; color: rgb(255, 115, 35);"><svg viewBox="64 64 896 896"
-                                                                                        focusable="false" data-icon="alert"
+                                                                                        focusable="false"
+                                                                                        data-icon="alert"
                                                                                         width="1em" height="1em"
                                                                                         fill="currentColor"
                                                                                         aria-hidden="true"><path
@@ -63,7 +74,8 @@
                               style="flex: 1 1 0%; font-size: 16px; color: rgb(54, 124, 76); font-weight: 500;">Nhận tiền chỉ sau 30 phút làm hồ sơ</span><span
                                 role="img" aria-label="sliders" class="anticon anticon-sliders"
                                 style="font-size: 20px; color: rgb(54, 124, 76);"><svg viewBox="64 64 896 896"
-                                                                                       focusable="false" data-icon="sliders"
+                                                                                       focusable="false"
+                                                                                       data-icon="sliders"
                                                                                        width="1em" height="1em"
                                                                                        fill="currentColor"
                                                                                        aria-hidden="true"><path
@@ -77,87 +89,45 @@
                                     <div class="owl-stage"
                                          style="transform: translate3d(-1719px, 0px, 0px); transition: all 0.25s ease 0s; width: 4011px;">
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png"></div>
+                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                        </div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
                                                 src="/static/media/hung-thinh-corp-3f3e485397a45223.jpg"></div>
                                         <div class="owl-item" style="width: 573px;"><img
                                                 src="/static/media/Signing-MOU-with-Hung-Thinh-Corp-PIC-1.jpg"></div>
                                         <div class="owl-item active" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png"></div>
+                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                        </div>
                                         <div class="owl-item" style="width: 573px;"><img
                                                 src="/static/media/hung-thinh-corp-3f3e485397a45223.jpg"></div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
                                                 src="/static/media/Signing-MOU-with-Hung-Thinh-Corp-PIC-1.jpg"></div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png"></div>
+                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                    </div>
-                    <div style="display: flex; justify-content: center; min-height: 100px; margin-top: 20px;">
-                        <div class="ant-image"
-                             style="width: 100%; max-width: calc(100% - 40px); height: auto; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-                            <img src="/static/media/1668013577_banner1.png" class="ant-image-img"
-                                 style="border-radius: 10px; margin-bottom: 20px;"></div>
-                    </div>
-                    <div
-                        style="padding-top: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                        <div class="ant-image"><img src="/static/media/tick.e14cb23e178b8d3acd8f.png" class="ant-image-img"
-                                                    style="max-width: 100px;"></div>
-                        <div style="padding: 0px 10px;"><span class="ant-typography"
-                                                              style="display: flex; justify-content: center; align-items: center; color: rgb(85, 85, 85); text-align: center;">
+                        </div>
+                        <div style="display: flex; justify-content: center; min-height: 100px; margin-top: 20px;">
+                            <div class="ant-image"
+                                 style="width: 100%; max-width: calc(100% - 40px); height: auto; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                                <img src="/static/media/1668013577_banner1.png" class="ant-image-img"
+                                     style="border-radius: 10px; margin-bottom: 20px;"></div>
+                        </div>
+                        <div
+                            style="padding-top: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <div class="ant-image"><img src="/static/media/tick.e14cb23e178b8d3acd8f.png"
+                                                        class="ant-image-img"
+                                                        style="max-width: 100px;"></div>
+                            <div style="padding: 0px 10px;"><span class="ant-typography"
+                                                                  style="display: flex; justify-content: center; align-items: center; color: rgb(85, 85, 85); text-align: center;">
                     CÔNG TY TÀI CHÍNH HƯNG THỊNH
                 </span></div>
+                        </div>
                     </div>
                 </div>
-            </div> <!---->
-            <div style="position: fixed; z-index: 1000; bottom: 0px; min-width: 100%;">
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; min-height: 60px; padding: 0px 30px 10px; border-top: 1px solid rgb(238, 238, 238); background: rgb(255, 255, 255);">
-                    <div
-                        style="min-height: 45px; display: flex; justify-content: center; align-items: center; flex-direction: column; background: rgb(255, 255, 255);">
-                    <span role="img" aria-label="home" class="anticon anticon-home"
-                          style="font-size: 20px; color: rgb(54, 124, 76);"><svg viewBox="64 64 896 896"
-                                                                                 focusable="false" data-icon="home"
-                                                                                 width="1em" height="1em"
-                                                                                 fill="currentColor" aria-hidden="true"><path
-                                d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 00-44.4 0L77.5 505a63.9 63.9 0 00-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0018.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path></svg></span>
-                        <span class="ant-typography" style="font-size: 12px; color: rgb(54, 124, 76);">Trang chủ</span>
-                    </div>
-                    <div
-                        style="min-height: 60px; border-radius: 25px; min-width: 60px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                    <span role="img" aria-label="credit-card" class="anticon anticon-credit-card"
-                          style="font-size: 20px; color: rgb(102, 102, 102);"><svg viewBox="64 64 896 896"
-                                                                                   focusable="false"
-                                                                                   data-icon="credit-card" width="1em"
-                                                                                   height="1em" fill="currentColor"
-                                                                                   aria-hidden="true"><path
-                                d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-792 72h752v120H136V232zm752 560H136V440h752v352zm-237-64h165c4.4 0 8-3.6 8-8v-72c0-4.4-3.6-8-8-8H651c-4.4 0-8 3.6-8 8v72c0 4.4 3.6 8 8 8z"></path></svg></span>
-                        <span class="ant-typography" style="font-size: 12px; color: rgb(102, 102, 102);">Ví tiền</span>
-                    </div>
-                    <div
-                        style="min-height: 45px; display: flex; justify-content: center; align-items: center; flex-direction: column; background: rgb(255, 255, 255);">
-                        <i aria-label="icon: customer-service" class="anticon anticon-customer-service"
-                           style="font-size: 20px;">
-                            <svg viewBox="64 64 896 896" data-icon="customer-service" width="1em" height="1em"
-                                 fill="currentColor" aria-hidden="true" focusable="false" class="">
-                                <path
-                                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"></path>
-                            </svg>
-                        </i> <span class="ant-typography" style="font-size: 12px;">CSKH</span></div>
-                    <div
-                        style="min-height: 45px; display: flex; justify-content: center; align-items: center; flex-direction: column; background: rgb(255, 255, 255);">
-                        <a href="{{route('user.hoSo')}}" style="display: grid"><span role="img" aria-label="user" class="anticon anticon-user"
-                                         style="font-size: 20px; color: rgb(102, 102, 102);"><svg viewBox="64 64 896 896"
-                                                                                                  focusable="false" data-icon="user"
-                                                                                                  width="1em" height="1em"
-                                                                                                  fill="currentColor"
-                                                                                                  aria-hidden="true"><path
-                                        d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg></span>
-                            <span class="ant-typography" style="font-size: 12px; color: rgb(102, 102, 102);">Hồ sơ</span></a>
-                    </div>
-                </div>
+                @include('user.layouts.chan-trang')
             </div>
         </div>
-    </div>
 @endsection

@@ -2,5 +2,10 @@
     "/js/user-dang-ky.js": "/js/user-dang-ky.js",
     "/js/user-dang-ky-khoan-vay.js": "/js/user-dang-ky-khoan-vay.js",
     "/js/user-dang-nhap.js": "/js/user-dang-nhap.js",
-    "/js/user-xac-minh.js": "/js/user-xac-minh.js"
+    "/js/user-hop-dong-vay.js": "/js/user-hop-dong-vay.js",
+    "/js/user-vi-tien.js": "/js/user-vi-tien.js",
+    "/js/user-xac-minh.js": "/js/user-xac-minh.js",
+    "/js/user-xac-minh-thong-tin-ca-nhan.js": "/js/user-xac-minh-thong-tin-ca-nhan.js",
+    "/js/user-xac-minh-thong-tin-ngan-hang.js": "/js/user-xac-minh-thong-tin-ngan-hang.js",
+    "/js/user-xac-nhan-khoan-vay.js": "/js/user-xac-nhan-khoan-vay.js"
 }

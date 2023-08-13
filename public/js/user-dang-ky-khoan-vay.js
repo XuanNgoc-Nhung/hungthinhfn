@@ -3585,6 +3585,30 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
     console.log('Mounted Configs...');
   },
   methods: {
+    dangKyKhoanVay: function dangKyKhoanVay() {
+      var _this = this;
+      console.log('dangKyKhoanVay');
+      if (!this.thongTinVay.soTien || !this.thongTinVay.thoiHan) {
+        this.thongBao('error', 'Vui lòng bổ sung thông tin bắt buộc');
+        return;
+      }
+      var params = {
+        soTien: this.thongTinVay.soTien,
+        thoiHan: this.thongTinVay.thoiHan,
+        laiSuat: this.thongTinVay.laiSuat,
+        traMoiKy: this.thongTinVay.traKyDau
+      };
+      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/dang-ky-so-tien-vay', params).then(function (response) {
+        console.log('Res đăng ký:');
+        console.log(response);
+        if (response.data.rc == 0) {
+          window.open("/xac-minh", "_self");
+        } else {
+          _this.thongBao('error', response.data.rd);
+        }
+        _this.loading.status = false;
+      })["catch"](function (e) {});
+    },
     tinhTienHangThang: function tinhTienHangThang() {
       console.log('tinhTienHangThang:');
       this.thongTinVay.soTien = parseInt(this.thongTinVay.soTien);
@@ -3598,7 +3622,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
       console.log('Trả mỗi kỳ:' + this.thongTinVay.traKyDau);
     },
     dangKy: function dangKy() {
-      var _this = this;
+      var _this2 = this;
       console.log('Đăng ký:');
       if (this.thongTinDangKy.phone == '' || this.thongTinDangKy.pass == '' || this.thongTinDangKy.rePass == '') {
         this.thongBao('error', 'Không được để trống thông tin');
@@ -3616,9 +3640,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
         if (response.data.rc == 0) {
           window.open("/", "_self");
         } else {
-          _this.thongBao('error', response.data.rd);
+          _this2.thongBao('error', response.data.rd);
         }
-        _this.loading.status = false;
+        _this2.loading.status = false;
       })["catch"](function (e) {});
     },
     thongBao: function thongBao(typeNoty, msgNoty) {
@@ -3688,7 +3712,11 @@ var render = function render() {
     staticStyle: {
       background: "rgb(54, 124, 76)"
     }
-  }, [_c("div", [_c("span", {
+  }, [_c("div", [_c("a", {
+    attrs: {
+      href: "/"
+    }
+  }, [_c("span", {
     staticClass: "anticon anticon-left arrow-icon",
     staticStyle: {
       color: "rgb(255, 255, 255)"
@@ -3711,7 +3739,7 @@ var render = function render() {
     attrs: {
       d: "M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
     }
-  })])])]), _vm._v(" "), _c("span", {
+  })])])])]), _vm._v(" "), _c("span", {
     staticClass: "ant-typography header-text",
     staticStyle: {
       color: "rgb(255, 255, 255)"
@@ -3834,7 +3862,22 @@ var render = function render() {
       color: "rgb(62, 62, 62)",
       "font-size": "16px"
     }
-  }, [_vm._v(_vm._s(_vm.thongTinVay.laiSuat.toFixed(2)) + "%")])]), _vm._v(" "), _vm._m(4)]), _vm._v(" "), _vm._m(5)])])]);
+  }, [_vm._v(_vm._s(_vm.thongTinVay.laiSuat.toFixed(2)) + "%")])]), _vm._v(" "), _vm._m(4)]), _vm._v(" "), _c("div", {
+    staticClass: "btn-container"
+  }, [_c("button", {
+    staticClass: "ant-btn ant-btn-default confirm-btn",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.dangKyKhoanVay();
+      }
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography btn-title"
+  }, [_vm._v("Xác nhận khoản vay")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3885,19 +3928,6 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "ant-typography"
   }, [_vm._v("Chi tiết trả nợ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "btn-container"
-  }, [_c("button", {
-    staticClass: "ant-btn ant-btn-default confirm-btn",
-    attrs: {
-      type: "button"
-    }
-  }, [_c("span", {
-    staticClass: "ant-typography btn-title"
-  }, [_vm._v("Xác nhận khoản vay")])])]);
 }];
 render._withStripped = true;
 
