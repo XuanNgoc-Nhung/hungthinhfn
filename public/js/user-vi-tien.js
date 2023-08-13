@@ -3580,10 +3580,30 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
       })["catch"](function (e) {});
     },
     rutTien: function rutTien() {
-      if (true) {
+      if (this.thongTinCaNhan.so_du == 0) {
         this.thongBao('error', 'Số dư không đủ.');
         return;
+      } else {
+        this.tienHanhRutTien();
       }
+    },
+    tienHanhRutTien: function tienHanhRutTien() {
+      var _this2 = this;
+      console.log('Lấy thông tin cá nhân');
+      this.thongTinCaNhan = {};
+      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/rut-tien-ca-nhan', {}).then(function (response) {
+        console.log('Res đăng ký:');
+        console.log(response);
+        if (response.data.rc == 0) {
+          _this2.thongBao('success', response.data.rd);
+          _this2.layThongTinCaNhan();
+        } else {
+          _this2.thongBao('error', response.data.rd);
+          // window.open("/", "_self")
+        }
+
+        console.log(_this2.thongTinCaNhan);
+      })["catch"](function (e) {});
     },
     thongBao: function thongBao(typeNoty, msgNoty) {
       var msg = "";

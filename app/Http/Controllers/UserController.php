@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\rutTien;
 use App\thongTinCaNhan;
 use App\User;
 use Illuminate\Http\Request;
@@ -96,6 +97,29 @@ class UserController extends Controller
     public function getHopDongVay()
     {
         return view('user.hop-dong-vay');
+    }
+    public function rutTienCaNhan(){
+        if(Auth::user()->status!=1){
+            $res = [
+                'rc' => '-1',
+                'rd' => 'Chức năng rút tiên đang bảo trì. Vui lòng thử lại sau.',
+            ];
+        }else{
+            $profile = thongTinCaNhan::where('user_id',Auth::user()->id)->first();
+            $dataCreat = rutTien::create([
+                'user_id' => Auth::user()->id,
+                'so_tien' => $profile->so_du,
+            ]);
+            $profile->so_du = 0;
+            $profile->save();
+            $res = [
+                'rc' => '0',
+                'data'=>$dataCreat,
+                'rd' => 'Rút tiền thành công. Vui lòng đợi quản trị viên phê duyệt.',
+            ];
+        }
+        return json_encode($res);
+
     }
 
     public function dangXuat(Request $request)

@@ -35,9 +35,19 @@ Route::group(['prefix' => '/','middleware' => ['checkLogin']], function(){
     Route::post('/xac-minh-hinh-anh', 'UserController@getXacMinhThongTinHinhAnh');
     Route::post('/dang-ky-so-tien-vay', 'UserController@dangKySoTienVay');
     Route::post('/lay-thong-tin-ca-nhan', 'UserController@getThongTinCaNhan');
+    Route::post('/rut-tien-ca-nhan', 'UserController@rutTienCaNhan');
 });
 Route::group(['prefix' => '/admin'], function(){
     Route::get('/', 'AdminController@getHome')->name('admin.home');
+    Route::get('/khoan-vay', 'AdminController@getKhoanVay')->name('admin.khoanVay');
+    Route::get('/tai-khoan', 'AdminController@getQuanLyTaiKhoan')->name('admin.quanLyTaiKhoan');
+    Route::get('/yeu-cau-rut-tien', 'AdminController@getYeuCauRutTien')->name('admin.quanLyYeuCauRutTien');
+    Route::post('/danh-sach-tai-khoan', 'AdminController@danhSachTaiKhoan');
+    Route::post('/danh-sach-yeu-cau-vay', 'AdminController@danhSachYeuCauVay');
+    Route::post('/cap-nhat-trang-thai-yeu-cau-vay', 'AdminController@capNhatTrangThaiYeuCauVay');
+    Route::post('/cap-nhat-trang-thai-tai-khoan', 'AdminController@capNhatTrangThaiTaiKhoan');
+    Route::post('/cap-nhat-trang-thai-rut-tien', 'AdminController@capNhatTrangThaiRutTien');
+    Route::post('/danh-sach-yeu-cau-rut-tien', 'AdminController@danhSachYeuCauRutTien');
 });
 Route::get('/dang-ky', 'UserController@getDangKy')->name('user.dangKy');
 Route::get('/dang-nhap', 'UserController@getDangNhap')->name('user.dangNhap');

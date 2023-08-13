@@ -142,10 +142,31 @@ export default {
             })
         },
         rutTien(){
-            if(true){
+            if(this.thongTinCaNhan.so_du==0){
                 this.thongBao('error','Số dư không đủ.')
                 return;
+            }else{
+                this.tienHanhRutTien();
             }
+        },
+        tienHanhRutTien(){
+            console.log('Lấy thông tin cá nhân')
+            this.thongTinCaNhan = {};
+            rest_api.post('/rut-tien-ca-nhan', {}).then(
+                response => {
+                    console.log('Res đăng ký:')
+                    console.log(response)
+                    if (response.data.rc == 0) {
+                        this.thongBao('success', response.data.rd)
+                        this.layThongTinCaNhan()
+                    } else {
+                        this.thongBao('error', response.data.rd)
+                        // window.open("/", "_self")
+                    }
+                    console.log(this.thongTinCaNhan)
+                }
+            ).catch((e) => {
+            })
         },
         thongBao(typeNoty, msgNoty) {
             let msg = "";

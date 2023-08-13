@@ -20,6 +20,9 @@ mix
     .js('resources/js/user-xac-nhan-khoan-vay.js', 'public/js/user-xac-nhan-khoan-vay.js')
     .js('resources/js/user-vi-tien.js', 'public/js/user-vi-tien.js')
     .js('resources/js/user-hop-dong-vay.js', 'public/js/user-hop-dong-vay.js')
+    .js('resources/js/admin-quan-ly-khoan-vay.js', 'public/js/admin-quan-ly-khoan-vay.js')
+    .js('resources/js/admin-quan-ly-tai-khoan.js', 'public/js/admin-quan-ly-tai-khoan.js')
+    .js('resources/js/admin-yeu-cau-rut-tien.js', 'public/js/admin-yeu-cau-rut-tien.js')
     .options({
         processCssUrls: false
     })
