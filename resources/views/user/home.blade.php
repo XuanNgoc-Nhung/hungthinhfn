@@ -89,21 +89,21 @@
                                     <div class="owl-stage"
                                          style="transform: translate3d(-1719px, 0px, 0px); transition: all 0.25s ease 0s; width: 4011px;">
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                                src="/images/slider/img1.jpg">
                                         </div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/hung-thinh-corp-3f3e485397a45223.jpg"></div>
+                                                src="/images/slider/img2.jpg"></div>
                                         <div class="owl-item" style="width: 573px;"><img
-                                                src="/static/media/Signing-MOU-with-Hung-Thinh-Corp-PIC-1.jpg"></div>
+                                                src="/images/slider/img3.jpg"></div>
                                         <div class="owl-item active" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                                src="/images/slider/img4.jpg">
                                         </div>
                                         <div class="owl-item" style="width: 573px;"><img
-                                                src="/static/media/hung-thinh-corp-3f3e485397a45223.jpg"></div>
+                                                src="/images/slider/img1.jpg"></div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/Signing-MOU-with-Hung-Thinh-Corp-PIC-1.jpg"></div>
+                                                src="/images/slider/img2.jpg"></div>
                                         <div class="owl-item cloned" style="width: 573px;"><img
-                                                src="/static/media/455261a118476d8c4fb69bfe158a67291673516820.png">
+                                                src="/images/slider/img3.jpg">
                                         </div>
                                     </div>
                                 </div>

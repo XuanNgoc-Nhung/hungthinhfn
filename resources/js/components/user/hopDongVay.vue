@@ -78,7 +78,7 @@
                     <div><h5 style="text-align: center;"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5><h5
                         style="text-align: center; "><b>ĐỘC LẬP - TỰ DO - HANH PHÚC</b></h5><h5
                         style="text-align: center; "><b>ĐƠN VAY VỐN KIÊM HỢP ĐỒNG</b></h5><h5>Bên A (Bên cho vay) :
-                        CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH HƯNG THỊNH<br></h5>
+                        CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit<br></h5>
                         <p>Mã số hợp đồng:&nbsp;<span id="codeContractSetting"
                                                       style="color:red">{{ 1000000000 + thongTinCaNhan.id }}</span>
                         </p>
@@ -126,7 +126,7 @@
                         <p>- Chỉ tính việc bên B hoàn trả tiền gốc và lãi của khoản vay và thanh toán phí tín dụng
                             duyệt nhanh, phí quản lý tài khoản.</p>
                         <p style="text-align: center; "><img style="max-width:100%;"
-                                                             src="https://hungthinhfn.com/static/media/photo_2023-06-25_06-51-41-removebg-preview.png"><br>
+                                                             src="/static/media/anhConDau.jpg"><br>
                         </p>
                         <p><br></p>
                         <p><br></p></div>

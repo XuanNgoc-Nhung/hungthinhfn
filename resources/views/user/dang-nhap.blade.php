@@ -10,7 +10,7 @@
                      style="background-image: linear-gradient(rgba(255, 255, 255, 0.77) 0%, rgb(255, 255, 255) 100%), url(&quot;/static/media/ksksk.webp&quot;); min-height: 100vh; background-repeat: no-repeat; background-size: cover; background-position: 63% 0px; padding-bottom: 60px;">
                     <div class="empty-div transformLogo showTransform"
                          style="opacity: 1; padding: 0px; margin-bottom: 0px;">
-                        <div class="ant-image" style="width: 250px;"><img src="/static/media/hungthinh.png"
+                        <div class="ant-image" style="width: 250px;"><img src="/static/media/hungthinh.jpg"
                                                                           class="ant-image-img"
                                                                           style="border-radius: 0px;"></div>
                     </div>

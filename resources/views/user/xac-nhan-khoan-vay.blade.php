@@ -5,7 +5,13 @@
 @endsection
 @section("content")
     <div id="app">
-        <xac-nhan-khoan-vay></xac-nhan-khoan-vay>
+
+        <div style="padding-bottom: 80px;">
+
+            <xac-nhan-khoan-vay></xac-nhan-khoan-vay><!---->
+            @include('user.layouts.chan-trang')
+
+        </div>
     </div>
 @endsection
 @section("js_location")

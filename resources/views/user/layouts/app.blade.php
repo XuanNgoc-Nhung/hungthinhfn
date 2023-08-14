@@ -65,7 +65,7 @@
         items:1,
         dots:false,
         autoplay:true,
-        autoplayTimeout:1500,
+        autoplayTimeout:2500,
     })
 </script>
 </body>
