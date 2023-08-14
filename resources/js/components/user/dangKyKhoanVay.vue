@@ -32,7 +32,7 @@
                         <div tabindex="0" class="ant-select ant-select-enabled"
                              style="border-radius: 100px; min-width: 150px;">
                             <el-select v-model="thongTinVay.thoiHan" placeholder="Chọn"
-                                       @change.prevent="tinhTienHangThang">
+                                       @change="tinhTienHangThang">
                                 <el-option
                                     v-for="item in danh_sach_thoi_han_vay"
                                     :key="item.value"

@@ -25,6 +25,9 @@ class AdminController extends Controller
         $check = thongTinCaNhan::where('id',$request->id)->first();
         if($check){
             $check->trang_thai = $request->trang_thai;
+            if($request->trang_thai==1){
+                $check->so_du = $check->so_tien_vay;
+            }
             $check->save();
             $res = [
                 'rc' => '0',

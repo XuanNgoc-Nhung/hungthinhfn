@@ -23,7 +23,7 @@
                     class="ant-typography" style="font-size: 17px;">Khoản tiền vay : <span
                     class="ant-typography"><strong>{{thongTinCaNhan.so_tien_vay?thongTinCaNhan.so_tien_vay.toLocaleString():0}}</strong></span> VND</span><span class="ant-typography"
                                                                                                style="font-size: 17px;">Thời hạn thanh toán : <span
-                    class="ant-typography"><strong>{{thongTinCaNhan.thoi_han?thongTinCaNhan.thoi_han:0}} tháng</strong></span></span>
+                    class="ant-typography"><strong>{{thongTinCaNhan.thoi_han_vay?thongTinCaNhan.thoi_han_vay:0}} tháng</strong></span></span>
                     <button type="button" class="ant-btn ant-btn-round ant-btn-default"
                             @click.prevent="hienThiHopDong()"
                             style="background: rgb(255, 115, 35); margin: 10px;"><span class="ant-typography"

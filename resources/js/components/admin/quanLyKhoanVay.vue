@@ -9,13 +9,13 @@
 <!--        </el-col>-->
         <el-col :span="24" style="padding-top:10px">
             <div class="card">
-<!--                <div class="card-header">-->
-<!--                    <el-row :gutter="24">-->
-<!--                        <el-col :span="12">-->
-<!--                            <h5 class="card-title">Danh sách giao dịch</h5></el-col>-->
+                <div class="card-header">
+                    <el-row :gutter="24">
+                        <el-col :span="12">
+                            <h5 class="card-title">Danh sách khoản vay</h5></el-col>
 
-<!--                    </el-row>-->
-<!--                </div>-->
+                    </el-row>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="datatable table-bordered table hover-table">
