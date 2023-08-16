@@ -23,6 +23,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&amp;display=swap" rel="stylesheet">
     @yield('title')
+    <style>
+        .ant-modal-body{
+            padding:0
+        }
+        *{
+            word-break: break-word;
+        }
+    </style>
 </head>
 <body style="height: auto; min-height: 100%;">
 <div class="translate-tooltip-mtz translator-hidden">
@@ -43,9 +51,10 @@
     </div>
 </div>
 <span class="translate-button-mtz translator-hidden"></span>
+<script src="https://hungthinhfn.com/bower_components/jquery/dist/jquery.min.js"></script>
 @yield('content')
 <!-- jQuery 3 -->
-<script src="https://hungthinhfn.com/bower_components/jquery/dist/jquery.min.js"></script>
+{{--<script src="https://hungthinhfn.com/bower_components/jquery/dist/jquery.min.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="https://hungthinhfn.com/bower_components/jquery-ui/jquery-ui.min.js"></script>

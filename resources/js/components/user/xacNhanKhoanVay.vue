@@ -52,7 +52,7 @@
         </div>
         <el-dialog
             :visible.sync="hien_thi_hop_dong"
-            width="80%"
+            width="95%"
             top="5vh"
             :before-close="handleClose">
             <div>

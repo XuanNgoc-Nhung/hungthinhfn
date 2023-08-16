@@ -1,6 +1,9 @@
 @extends("user.layouts.app")
 @section("title")
-    <title>Trang chủ</title>
+    <title>Trang chủ</title><!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 @endsection
 @section("content")
     <div id="app">
@@ -35,7 +38,7 @@
                             <img src="/static/media/vay-tin-chap-vpbank.jpg" class="ant-image-img"
                                  style="border-radius: 10px; margin-bottom: 20px;"></div>
                     </div>
-                    <a href="{{route('user.dangKyKhoanVay')}}" class="text-center">
+                    <a style="cursor: pointer" onclick="checkDangKyKhoanVay()" class="text-center">
                         <button type="button" class="ant-btn ant-btn-default choose-btn"
                                 style="margin-top: 20px !important;">
                             <span class="ant-typography"
@@ -130,4 +133,35 @@
                 @include('user.layouts.chan-trang')
             </div>
         </div>
+        <div role="alert" id="thongBao" class="el-message el-message--error is-closable dts-noty-error"
+             style="top: 20px;z-index: 2013;display: none"><i class="el-message__icon el-icon-error"></i>
+            <p class="el-message__content">Lỗi! Số điện thoại đã được đăng ký.</p><i class="el-message__closeBtn el-icon-close"></i></div>
+
+        <script>
+            function checkDangKyKhoanVay(){
+                console.log('checkDangKyKhoanVay')
+                let params = {
+                }
+                console.log('Thông tin giao dịch')
+                console.log(params)
+                axios.post('/check-dang-ky-khoan-vay', params)
+                    .then(function (response) {
+                        console.log('thêm giao dịch trả về')
+                        console.log(response);
+                        if (response.data.rc != 0) {
+                            console.log('xacNhanRutTien')
+                            $('#thongBao')[0].style.display = 'flex';
+                            setTimeout(()=>{
+                                $('#thongBao')[0].style.display = 'none';
+                            },1500)
+                        } else {
+                            console.log('Chuyển hướng')
+                            window.open('/dang-ky-khoan-vay','_self')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        </script>
 @endsection

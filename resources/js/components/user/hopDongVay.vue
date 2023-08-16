@@ -70,7 +70,7 @@
         </div>
         <el-dialog
             :visible.sync="hien_thi_hop_dong"
-            width="80%"
+            width="95%"
             top="5vh"
             :before-close="handleClose">
             <div>
@@ -140,7 +140,7 @@
         <el-dialog
             title="Chi tiết trả nợ"
             :visible.sync="hien_thi_chi_tiet_tra_no"
-            width="80%"
+            width="90%"
             :before-close="handleClose">
             <div>
                 <div style="max-height: 350px; overflow-y: scroll;">

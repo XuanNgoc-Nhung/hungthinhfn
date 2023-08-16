@@ -3707,7 +3707,7 @@ var render = function render() {
   }, [_vm._m(2)]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("el-dialog", {
     attrs: {
       visible: _vm.hien_thi_hop_dong,
-      width: "80%",
+      width: "95%",
       top: "5vh",
       "before-close": _vm.handleClose
     },

@@ -74,7 +74,8 @@
                                 <img src="https://tcinvest.tcbs.com.vn/assets/images/default-avatar.svg">
                             @endif
                         </span> <span
-                            class="ant-typography" style="font-size: 17px; font-weight: 700;">{{Auth::user()->phone }}</span>
+                            class="ant-typography"
+                            style="font-size: 17px; font-weight: 700;">{{Auth::user()->phone }}</span>
                         <div role="separator"
                              class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left">
                             <span class="ant-divider-inner-text">Thông tin </span></div>
@@ -84,20 +85,23 @@
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Họ tên : </span><span
-                                    class="ant-typography" style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ho_ten}} </span>
+                                    class="ant-typography"
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ho_ten}} </span>
                             </div>
                             <div
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Địa chỉ : </span><span
-                                    class="ant-typography" style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->dia_chi}} </span>
+                                    class="ant-typography"
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->dia_chi}} </span>
                             </div>
                             <div
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Số CMND/CCCD : </span><span
                                     class="ant-typography"
-                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->cmnd}} </span></div>
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->cmnd}} </span>
+                            </div>
                             <div
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
@@ -109,14 +113,16 @@
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Ngày sinh : </span><span
-                                    class="ant-typography" style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ngay_sinh}}</span>
+                                    class="ant-typography"
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ngay_sinh}}</span>
                             </div>
                             <div
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Nghề nghiệp : </span><span
                                     class="ant-typography"
-                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->nghe_nghiep}} </span></div>
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->nghe_nghiep}} </span>
+                            </div>
                             <div
                                 style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                                 <span class="ant-typography"
@@ -129,20 +135,23 @@
                                 <span class="ant-typography"
                                       style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Mục đích khoản vay : </span><span
                                     class="ant-typography"
-                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->muc_dich_vay}}</span></div>
+                                    style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->muc_dich_vay}}</span>
+                            </div>
                         </div>
                         <div
                             style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                             <span class="ant-typography"
                                   style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">SĐT người thân : </span><span
                                 class="ant-typography"
-                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->sdt_nguoi_than}} </span></div>
+                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->sdt_nguoi_than}} </span>
+                        </div>
                         <div
                             style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                             <span class="ant-typography"
                                   style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Mối quan hệ với người thân : </span><span
                                 class="ant-typography"
-                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->moi_quan_he}} </span></div>
+                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->moi_quan_he}} </span>
+                        </div>
                         <div role="separator"
                              class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left">
                             <span class="ant-divider-inner-text">Tài khoản ngân hàng</span></div>
@@ -151,13 +160,19 @@
                             <span class="ant-typography"
                                   style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Tên ngân hàng : </span><span
                                 class="ant-typography"
-                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ngan_hang}} </span></div>
+                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->ngan_hang}} </span>
+                        </div>
                         <div
                             style="width: 100%; display: flex; justify-content: flex-start; align-items: center; padding: 5px 0px;">
                             <span class="ant-typography"
-                                  style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 0 0 50%;">Số TK ngân hàng : </span><span
-                                class="ant-typography" style="flex: 0 0 40%; font-size: 16px; font-weight: 500;">**********</span>
-                            <span role="img" aria-label="eye" tabindex="-1" class="anticon anticon-eye eye-icon"><svg
+                                  style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 0 0 50%;">Số TK ngân hàng : </span>
+                            <span id="anStk" class="ant-typography"
+                                  style="flex: 0 0 40%; font-size: 16px; font-weight: 500;">**********</span>
+                            <span id="hienStk" class="ant-typography"
+                                  style="display: none; flex: 0 0 40%; font-size: 16px; font-weight: 500;">{{$profile->so_tai_khoan}}</span>
+
+                            <span onclick="anHienStk()" style="cursor: pointer" role="img" aria-label="eye"
+                                  tabindex="-1" class="anticon anticon-eye eye-icon"><svg
                                     viewBox="64 64 896 896" focusable="false" data-icon="eye" width="1em" height="1em"
                                     fill="currentColor" aria-hidden="true"><path
                                         d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg></span>
@@ -167,9 +182,26 @@
                             <span class="ant-typography"
                                   style="padding-right: 10px; font-size: 14px; font-weight: 500; flex: 2 1 0%;">Tên thụ hưởng : </span><span
                                 class="ant-typography"
-                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->chu_tai_khoan}}</span></div>
+                                style="flex: 2 1 0%; font-size: 16px; font-weight: 500;">{{$profile->chu_tai_khoan}}</span>
+                        </div>
                     </div>
                 </div>
             </div> <!----> <!----></div>
     </div>
+    <script>
+        var check = false;
+
+        function anHienStk() {
+            check = !check;
+            if (check) {
+                $("#hienStk")[0].style.display = 'block'
+                $("#anStk")[0].style.display = 'none'
+            } else {
+                $("#hienStk")[0].style.display = 'none'
+                $("#anStk")[0].style.display = 'block'
+            }
+
+        }
+    </script>
 @endsection
+

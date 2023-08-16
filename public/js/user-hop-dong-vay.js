@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3814,7 +3814,7 @@ var render = function render() {
   }, [_vm._m(2)])])])])]), _vm._v(" "), _c("el-dialog", {
     attrs: {
       visible: _vm.hien_thi_hop_dong,
-      width: "80%",
+      width: "95%",
       top: "5vh",
       "before-close": _vm.handleClose
     },
@@ -3938,7 +3938,7 @@ var render = function render() {
     attrs: {
       title: "Chi tiết trả nợ",
       visible: _vm.hien_thi_chi_tiet_tra_no,
-      width: "80%",
+      width: "90%",
       "before-close": _vm.handleClose
     },
     on: {
@@ -89658,7 +89658,7 @@ new Vue({
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!*************************************************!*\
   !*** multi ./resources/js/user-hop-dong-vay.js ***!
   \*************************************************/

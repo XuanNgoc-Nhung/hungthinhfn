@@ -242,13 +242,48 @@ class UserController extends Controller
         }
         return json_encode($res);
     }
+    public function checkDangKyKhoanVay(){
+        $check = thongTinCaNhan::where('user_id', Auth::user()->id)->first();
+        if (isset($check)&&$check->so_tien_vay>0) {
+            $res = [
+                'rc' => '-1',
+                'rd' => 'Lỗi! Số điện thoại đã được đăng ký',
+                'data' => $check
+            ];
+        } else {
+            $res = [
+                'rc' => '0',
+            ];
+        }
+        return json_encode($res);
+    }
 
     public function dangKySoTienVay(Request $request)
     {
         Log::info('Đăng ký số tiền vay');
         $req = $request->all();
         $check = thongTinCaNhan::where('user_id', Auth::user()->id)->first();
-        if (!isset($check)) {
+        if (isset($check)) {
+            if($check->so_tien_vay>0){
+                $res = [
+                    'rc' => '-1',
+                    'rd' => 'Lỗi! Số điện thoại đã được đăng ký',
+                    'data' => $check
+                ];
+            }else{
+                $check->so_tien_vay = $req['soTien'];
+                $check->thoi_han_vay = $req['thoiHan'];
+                $check->lai_suat = $req['laiSuat'];
+                $check->tra_moi_ky = $req['traMoiKy'];
+                $check->save();
+                $res = [
+                    'rc' => '0',
+                    'data' => $check,
+                    'rd' => 'Đăng ký khoản vay thành công',
+                ];
+
+            }
+        } else {
             $dataCreat = thongTinCaNhan::create([
                 'user_id' => Auth::user()->id,
                 'so_tien_vay' => $req['soTien'],
@@ -260,18 +295,6 @@ class UserController extends Controller
                 'rc' => '0',
                 'data' => $dataCreat,
                 'rd' => 'Đăng ký khoản vay thành công',
-            ];
-        } else {
-            $profile = thongTinCaNhan::where('user_id', Auth::user()->id)->first();
-            $profile->so_tien_vay = $req['soTien'];
-            $profile->thoi_han_vay = $req['thoiHan'];
-            $profile->lai_suat = $req['laiSuat'];
-            $profile->tra_moi_ky = $req['traMoiKy'];
-            $profile->save();
-            $res = [
-                'rc' => '0',
-                'rd' => 'Cập nhật thành công',
-                'data' => $profile
             ];
         }
         return json_encode($res);
