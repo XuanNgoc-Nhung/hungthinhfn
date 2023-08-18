@@ -14,8 +14,8 @@
                                                                           class="ant-image-img"
                                                                           style="border-radius: 0px;"></div>
                     </div>
-                    <h3 style="text-align: center; font-size: 16px; margin-bottom: 22px; margin-top: -20px; font-weight: 500; color: rgb(54, 124, 76);">
-                        HOTLINE: 02929990999</h3>
+                    <h3 style="text-align: center; font-size: 16px; margin-bottom: 22px; margin-top: 20px; font-weight: 500; color: rgb(54, 124, 76);">
+                        HOTLINE: 02558888898</h3>
                     <div class="form" style="margin-top: -10px;">
                         <dang-nhap/>
                         <div style="position: relative; padding-left: 40px; padding-right: 40px; margin-top: 15px;">

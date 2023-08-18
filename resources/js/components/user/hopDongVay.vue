@@ -80,14 +80,13 @@
                         <h5 style="text-align: center;"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5><h5
                         style="text-align: center; "><b>ĐỘC LẬP - TỰ DO - HANH PHÚC</b></h5><h5
                         style="text-align: center; "><b>ĐƠN VAY VỐN KIÊM HỢP ĐỒNG</b></h5><h5>Bên A (Bên cho vay) :
-                        CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit<br></h5>
+                        CÔNG TY TÀI CHÍNH CỔ PHẦN TÍN VIỆT Tên quốc tế  VIETCREDIT FINANCE JOINT STOCK COMPANY<br></h5>
                         <p>Mã số hợp đồng:&nbsp;<span id="codeContractSetting"
                                                       style="color:red">{{ 1000000000 + thongTinCaNhan.id }}</span>
                         </p>
-                        <p>Địa chỉ :&nbsp;Nhà G32B Làng quốc tế Thăng Long, Phường Dịch Vọng, Quận Cầu Giấy, Thành
-                            phố Hà Nội, Việt Nam</p>
+                        <p>Địa chỉ :&nbsp;số 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, TP.HCM</p>
                         <p>Mã số doanh nghiệp : 0102383351</p>
-                        <p>Người đại diện pháp luật : ÔNG (BÀ) ĐÀO&nbsp;XUÂN&nbsp;THIỀNG</p>
+                        <p>Người đại diện pháp luật : ÔNG (BÀ) HỒ MINH TUẤN</p>
                         <p>Chức vụ : Thành Viên Hội Đồng Quản Trị Kiêm giám Đốc</p>
                         <p>Hai bên thống nhất việc bên A cho bên B vay tiền từ nguồn vốn của bên A theo các điều
                             kiện dưới đây.</p>

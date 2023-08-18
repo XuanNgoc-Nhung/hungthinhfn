@@ -3837,14 +3837,14 @@ var render = function render() {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c("b", [_vm._v("ĐƠN VAY VỐN KIÊM HỢP ĐỒNG")])]), _c("h5", [_vm._v("Bên A (Bên cho vay) :\n                      CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit"), _c("br")]), _vm._v(" "), _c("p", [_vm._v("Mã số hợp đồng: "), _c("span", {
+  }, [_c("b", [_vm._v("ĐƠN VAY VỐN KIÊM HỢP ĐỒNG")])]), _c("h5", [_vm._v("Bên A (Bên cho vay) :\n                      CÔNG TY TÀI CHÍNH CỔ PHẦN TÍN VIỆT Tên quốc tế  VIETCREDIT FINANCE JOINT STOCK COMPANY"), _c("br")]), _vm._v(" "), _c("p", [_vm._v("Mã số hợp đồng: "), _c("span", {
     staticStyle: {
       color: "red"
     },
     attrs: {
       id: "codeContractSetting"
     }
-  }, [_vm._v(_vm._s(1000000000 + _vm.thongTinCaNhan.id))])]), _vm._v(" "), _c("p", [_vm._v("Địa chỉ : Nhà G32B Làng quốc tế Thăng Long, Phường Dịch Vọng, Quận Cầu Giấy, Thành\n                          phố Hà Nội, Việt Nam")]), _vm._v(" "), _c("p", [_vm._v("Mã số doanh nghiệp : 0102383351")]), _vm._v(" "), _c("p", [_vm._v("Người đại diện pháp luật : ÔNG (BÀ) ĐÀO XUÂN THIỀNG")]), _vm._v(" "), _c("p", [_vm._v("Chức vụ : Thành Viên Hội Đồng Quản Trị Kiêm giám Đốc")]), _vm._v(" "), _c("p", [_vm._v("Hai bên thống nhất việc bên A cho bên B vay tiền từ nguồn vốn của bên A theo các điều\n                          kiện dưới đây.")]), _vm._v(" "), _c("p", [_vm._v("ĐIỀU : THÔNG TIN CƠ BẢN VỀ KHÁCH HÀNG")]), _vm._v(" "), _c("p", [_vm._v("1.1 Họ Và Tên : "), _c("span", {
+  }, [_vm._v(_vm._s(1000000000 + _vm.thongTinCaNhan.id))])]), _vm._v(" "), _c("p", [_vm._v("Địa chỉ : số 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, TP.HCM")]), _vm._v(" "), _c("p", [_vm._v("Mã số doanh nghiệp : 0102383351")]), _vm._v(" "), _c("p", [_vm._v("Người đại diện pháp luật : ÔNG (BÀ) HỒ MINH TUẤN")]), _vm._v(" "), _c("p", [_vm._v("Chức vụ : Thành Viên Hội Đồng Quản Trị Kiêm giám Đốc")]), _vm._v(" "), _c("p", [_vm._v("Hai bên thống nhất việc bên A cho bên B vay tiền từ nguồn vốn của bên A theo các điều\n                          kiện dưới đây.")]), _vm._v(" "), _c("p", [_vm._v("ĐIỀU : THÔNG TIN CƠ BẢN VỀ KHÁCH HÀNG")]), _vm._v(" "), _c("p", [_vm._v("1.1 Họ Và Tên : "), _c("span", {
     staticStyle: {
       color: "red"
     },

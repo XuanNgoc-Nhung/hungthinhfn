@@ -14,7 +14,7 @@
                         <div><span class="ant-typography text-head">Xin chào, </span><br><span
                                 class="ant-typography text-head">{{Auth::user()->phone}}</span></div>
                         <div style="margin-left: auto; padding-right: 20px;"><span class="ant-typography text-head">Tổng đài CSKH</span><br><span
-                                class="ant-typography text-head">Hotline: 02929990999</span></div>
+                                class="ant-typography text-head">Hotline: 02558888898</span></div>
                         <div>
                             <a href="/thong-bao">
                             <span class="ant-badge">
