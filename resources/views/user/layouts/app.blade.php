@@ -18,7 +18,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.css">
     <link rel="stylesheet" href="https://hungthinhfn.com/css/app.css">
-    <link rel="stylesheet" href="https://hungthinhfn.com/static/css/main.7ec70620.css">
+    <link rel="stylesheet" href="/user/css/main.css">
     <meta name="csrf-token" content="fswsuugcHWIOVRbsGzPdfuqYoXCUN2ccU3Pl3JQC">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&amp;display=swap" rel="stylesheet">

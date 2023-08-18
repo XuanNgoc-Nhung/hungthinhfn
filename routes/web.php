@@ -48,6 +48,7 @@ Route::group(['prefix' => '/admin','middleware'=>['checkLogin','checkAdmin']], f
     Route::post('/danh-sach-yeu-cau-vay', 'AdminController@danhSachYeuCauVay');
     Route::post('/cap-nhat-trang-thai-yeu-cau-vay', 'AdminController@capNhatTrangThaiYeuCauVay');
     Route::post('/cap-nhat-trang-thai-tai-khoan', 'AdminController@capNhatTrangThaiTaiKhoan');
+    Route::post('/cap-nhat-thong-tin-nguoi-dung', 'AdminController@capNhatTrangThaiNguoiDung');
     Route::post('/cap-nhat-trang-thai-rut-tien', 'AdminController@capNhatTrangThaiRutTien');
     Route::post('/danh-sach-yeu-cau-rut-tien', 'AdminController@danhSachYeuCauRutTien');
 });

@@ -15,7 +15,7 @@
                style="border-radius: 50px !important; height: 46px; line-height: 46px; border-color: rgb(54, 124, 76) !important;">
         <button type="button" class="ant-btn ant-btn-default ant-btn-lg login-btn"
                 @click.prevent="dangKy()"
-                style="width: calc(100% - 80px) !important; border-radius: 50px !important; background: rgb(54, 124, 76) !important; opacity: 1 !important;">
+                style="width: calc(100% - 80px) !important; border-radius: 50px !important; background: red !important; opacity: 1 !important;">
             <span class="ant-typography" style="color: rgb(255, 255, 255); font-weight: 400;">Đăng ký</span>
         </button>
         <div><br><span class="ant-typography"

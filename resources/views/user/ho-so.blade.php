@@ -139,7 +139,7 @@
                                                         class="ant-image-img" style="max-width: 100px;"></div>
                             <div style="padding: 0px 10px;"><span class="ant-typography"
                                                                   style="display: flex; justify-content: center; align-items: center; color: rgb(85, 85, 85); text-align: center;">
-                    CÔNG TY TÀI CHÍNH Viet Credit
+                    CÔNG TY TÀI CHÍNH TÍN VIỆT
                 </span></div>
                         </div>
                     </div>

@@ -86,7 +86,7 @@ class AdminController extends Controller
         $req = $request->all();
         $list = User::where('role',0);
         $total = $list->count();
-        $data = $list->orderBy('created_at', 'DESC')->skip($req['start'])->take($req['limit'])->get();
+        $data = $list->with('thongTinTaiKhoan')->orderBy('created_at', 'DESC')->skip($req['start'])->take($req['limit'])->get();
         if (count($data)) {
             $res = [
                 'rc' => '0',
@@ -97,6 +97,27 @@ class AdminController extends Controller
             $res = [
                 'rc' => '1',
                 'rd' => 'Không tìm thấy bản ghi nào'
+            ];
+        }
+        return json_encode($res);
+    }
+    public function capNhatTrangThaiNguoiDung(Request $request){
+        $check = User::where('id',$request->user_id)->first();
+        if($check){
+            $check->thong_bao = $request->thong_bao;
+            $check->save();
+            $info = thongTinCaNhan::where('user_id',$request->user_id)->first();
+            $info->so_du = $request->so_du;
+            $info->save();
+            $res = [
+                'rc' => '0',
+                'data' => $check,
+                'rd' => "Cập nhật trạng thái thành công",
+            ];
+        }else{
+            $res = [
+                'rc' => '-1',
+                'rd' => "Không tìm thấy bản ghi nào",
             ];
         }
         return json_encode($res);

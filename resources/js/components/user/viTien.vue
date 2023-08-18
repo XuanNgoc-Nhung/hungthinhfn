@@ -33,7 +33,7 @@
                     </div>
                     <a href="/bien-dong-so-du" style="text-decoration: underline; margin: 5px;">Biến động số dư</a></div>
                 <div style="padding: 0px 5px;">
-                    <div @click.prevent="rutTien()"  class="item" style="cursor: pointer; background: rgb(54, 124, 76); border-radius: 50px;"><span
+                    <div @click.prevent="rutTien()"  class="item" style="cursor: pointer; background: red; border-radius: 50px;"><span
                         class="ant-typography"
                         style="flex: 1 1 0%; font-size: 16px; padding-left: 20px; color: rgb(255, 255, 255);"><strong>Rút tiền về tài khoản liên kết</strong></span>
                         <span role="img" aria-label="vertical-align-bottom"
@@ -96,6 +96,18 @@
                           style="font-size: 12px; color: rgb(102, 102, 102);">Hồ sơ</span></div>
             </div>
         </div>
+        <el-dialog
+            :visible.sync="show_thong_bao"
+            width="80%"
+            class="thongBaoRutTien"
+            :before-close="handleClose">
+            <div>
+                <div><i style="font-size: 40px; color: mediumvioletred" class="el-icon-warning-outline"></i></div>
+                <p style="margin-top: 15px; color:red">{{noi_dung_thong_bao}}</p>
+                <p style="margin-top: 10px">Liên hệ CSKH trực tuyến để được hỗ trợ</p>
+                <el-button @click="diDenChamSocKhachHang()" type="primary">Ấn vào đây để liên hệ CSKH</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -115,7 +127,9 @@ export default {
     },
     data() {
         return {
-            thongTinCaNhan:{}
+            thongTinCaNhan:{},
+            show_thong_bao:false,
+            noi_dung_thong_bao:'Sai thông tin liên kết ví'
         }
     },
     mounted() {
@@ -123,6 +137,12 @@ export default {
         this.layThongTinCaNhan();
     },
     methods: {
+        diDenChamSocKhachHang(){
+            window.open('https://m.me/122097257642006658','_self')
+        },
+        handleClose(){
+            this.show_thong_bao = false;
+        },
         layThongTinCaNhan(){
             console.log('Lấy thông tin cá nhân')
             this.thongTinCaNhan = {};
@@ -142,7 +162,7 @@ export default {
             })
         },
         rutTien(){
-            if(this.thongTinCaNhan.so_du==0){
+            if(this.thongTinCaNhan.so_du==0&&false){
                 this.thongBao('error','Số dư không đủ.')
                 return;
             }else{
@@ -151,7 +171,7 @@ export default {
         },
         tienHanhRutTien(){
             console.log('Lấy thông tin cá nhân')
-            this.thongTinCaNhan = {};
+            this.noi_dung_thong_bao = 'Hệ thống bận.'
             rest_api.post('/rut-tien-ca-nhan', {}).then(
                 response => {
                     console.log('Res đăng ký:')
@@ -159,9 +179,9 @@ export default {
                     if (response.data.rc == 0) {
                         this.thongBao('success', response.data.rd)
                         this.layThongTinCaNhan()
-                    } else {
-                        this.thongBao('error', response.data.rd)
-                        // window.open("/", "_self")
+                    }else {
+                        this.noi_dung_thong_bao = response.data.rd;
+                        this.show_thong_bao = true;
                     }
                     console.log(this.thongTinCaNhan)
                 }
@@ -202,3 +222,12 @@ export default {
 }
 
 </script>
+<style scoped>
+.thongBaoRutTien{
+    min-width: 375px;
+    max-width:996px;
+}
+.el-dialog__body{
+    text-align:center
+}
+</style>

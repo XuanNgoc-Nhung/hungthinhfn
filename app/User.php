@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','status','role'
+        'name', 'email', 'password','phone','status','role','thong_bao'
     ];
 
     /**
@@ -36,4 +36,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function thongTinTaiKhoan(){
+        return $this->hasOne(thongTinCaNhan::class,'user_id','id');
+    }
 }
