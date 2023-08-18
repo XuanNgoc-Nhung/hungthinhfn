@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3793,7 +3793,7 @@ var render = function render() {
         _vm.hien_thi_chi_tiet_tra_no = true;
       }
     }
-  }, [_c("strong", [_vm._v("Chi tiết trả nợ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("br"), _vm._v(" "), _c("button", {
+  }, [_c("strong", [_vm._v("Chi tiết trả\n                          nợ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("br"), _vm._v(" "), _c("button", {
     staticClass: "ant-btn ant-btn-round ant-btn-default",
     staticStyle: {
       background: "rgb(255, 115, 35)",
@@ -3918,7 +3918,17 @@ var render = function render() {
     attrs: {
       src: "/static/media/anhConDau.jpg"
     }
-  }), _c("br")]), _vm._v(" "), _c("p", [_c("br")]), _vm._v(" "), _c("p", [_c("br")])])])]), _vm._v(" "), _c("span", {
+  }), _c("br")]), _vm._v(" "), _c("p", [_c("br")]), _vm._v(" "), _c("p", [_c("br")])]), _vm._v(" "), _c("div", [_c("br"), _vm._v(" "), _c("p", [_vm._v("Người vay ký")]), _vm._v(" "), _c("img", {
+    attrs: {
+      id: "contractAppend",
+      src: _vm.thongTinCaNhan.chu_ky,
+      width: "250px"
+    }
+  }), _vm._v(" "), _c("h5", {
+    attrs: {
+      id: "contractAppendName"
+    }
+  }, [_vm._v(_vm._s(_vm.thongTinCaNhan.ho_ten))])])])]), _vm._v(" "), _c("span", {
     staticClass: "dialog-footer",
     attrs: {
       slot: "footer"
@@ -89658,7 +89668,7 @@ new Vue({
 
 /***/ }),
 
-/***/ 9:
+/***/ 8:
 /*!*************************************************!*\
   !*** multi ./resources/js/user-hop-dong-vay.js ***!
   \*************************************************/

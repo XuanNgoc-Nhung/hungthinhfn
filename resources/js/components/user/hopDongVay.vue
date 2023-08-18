@@ -58,7 +58,8 @@
                                 thongTinCaNhan.created_at
                             }}</span>
                         </div>
-                        <a @click="hien_thi_chi_tiet_tra_no = true" class="ant-typography"><strong>Chi tiết trả nợ</strong></a> <br> <br>
+                        <a @click="hien_thi_chi_tiet_tra_no = true" class="ant-typography"><strong>Chi tiết trả
+                            nợ</strong></a> <br> <br>
                         <button @click.prevent="hienThiHopDong" type="button"
                                 class="ant-btn ant-btn-round ant-btn-default"
                                 style="background: rgb(255, 115, 35); display: flex; justify-content: center; margin: 0px auto; align-items: center;">
@@ -75,7 +76,8 @@
             :before-close="handleClose">
             <div>
                 <div class="ant-modal-body">
-                    <div><h5 style="text-align: center;"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5><h5
+                    <div>
+                        <h5 style="text-align: center;"><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5><h5
                         style="text-align: center; "><b>ĐỘC LẬP - TỰ DO - HANH PHÚC</b></h5><h5
                         style="text-align: center; "><b>ĐƠN VAY VỐN KIÊM HỢP ĐỒNG</b></h5><h5>Bên A (Bên cho vay) :
                         CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit<br></h5>
@@ -129,7 +131,9 @@
                                                              src="/static/media/anhConDau.jpg"><br>
                         </p>
                         <p><br></p>
-                        <p><br></p></div>
+                        <p><br></p>
+                    </div>
+                    <div><br> <p>Người vay ký</p> <img id="contractAppend" :src="thongTinCaNhan.chu_ky" width="250px"> <h5 id="contractAppendName">{{thongTinCaNhan.ho_ten}}</h5></div>
                 </div>
             </div>
             <span slot="footer" class="dialog-footer">
@@ -155,9 +159,10 @@
                         </thead>
                         <tbody class="ant-table-tbody">
                         <tr v-for="(item,i) in 12" class="ant-table-row ant-table-row-level-0">
-                            <td class="ant-table-cell"><span class="ant-typography">Kì thứ {{i+1}}</span></td>
+                            <td class="ant-table-cell"><span class="ant-typography">Kì thứ {{ i + 1 }}</span></td>
                             <td class="ant-table-cell"><span
-                                class="ant-typography"><strong>{{thongTinCaNhan.tra_moi_ky?thongTinCaNhan.tra_moi_ky.toLocaleString():0}}</strong></span></td>
+                                class="ant-typography"><strong>{{ thongTinCaNhan.tra_moi_ky ? thongTinCaNhan.tra_moi_ky.toLocaleString() : 0 }}</strong></span>
+                            </td>
                             <td class="ant-table-cell"><span class="ant-typography"><strong>13 - 9</strong></span>
                             </td>
                         </tr>

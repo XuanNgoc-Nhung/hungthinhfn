@@ -3552,30 +3552,146 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(element_ui__WEBPACK_IMPORTED_MODULE_2__["Icon"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
+  setup: function setup() {
+    var windowSize = ref(window.innerWidth);
+    onMounted(function () {
+      window.addEventListener('resize', function () {
+        windowSize.value = window.innerWidth;
+      });
+    });
+    onUnmounted(function () {
+      window.removeEventListener('resize', function () {
+        windowSize.value = window.innerWidth;
+      });
+    });
+    console.log(windowSize);
+    return {
+      windowSize: windowSize
+    };
+  },
   data: function data() {
     return {
       thongTinCaNhan: {},
-      hien_thi_hop_dong: false
+      hien_thi_hop_dong: false,
+      lastX: 0,
+      lastY: 0,
+      canvas: null,
+      ctx: null,
+      isDrawing: true,
+      screenWidth: 0
     };
   },
   mounted: function mounted() {
+    this.screenWidth = window.innerWidth;
+    window.addEventListener('resize', this.updateScreenWidth);
     console.log('Mounted xác nhận khoản vay...');
     this.layThongTinCaNhan();
+
+    // Lấy tham chiếu đến canvas
+    this.canvas = this.$refs.signatureCanvas;
+    this.ctx = this.canvas.getContext("2d");
+
+    // Biến kiểm tra xem người dùng đang vẽ chữ ký hay không
+    this.isDrawing = false;
+
+    // Xác định các biến lưu trữ vị trí chuột trước đó
+    this.lastX = 0;
+    this.lastY = 0;
+    this.ctx.strokeStyle = 'black';
+    this.ctx.lineWidth = 2;
+
+    // Lắng nghe sự kiện khi người dùng bắt đầu vẽ chữ ký
+    this.canvas.addEventListener("mousedown", this.startDrawing);
+
+    // Lắng nghe sự kiện khi người dùng di chuyển chuột để vẽ chữ ký
+    this.canvas.addEventListener("mousemove", this.draw);
+
+    // Lắng nghe sự kiện khi người dùng ngừng vẽ chữ ký
+    this.canvas.addEventListener("mouseup", this.stopDrawing);
+    this.canvas.addEventListener("mouseout", this.stopDrawing);
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('resize', this.updateScreenWidth);
   },
   methods: {
-    layThongTinCaNhan: function layThongTinCaNhan() {
+    updateScreenWidth: function updateScreenWidth() {
+      this.screenWidth = window.innerWidth;
+    },
+    // Bắt đầu vẽ chữ ký
+    startDrawing: function startDrawing(e) {
+      this.isDrawing = true;
+      var touch = e.touches[0];
+      var _ref = [touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop];
+      this.lastX = _ref[0];
+      this.lastY = _ref[1];
+    },
+    // Vẽ điểm trên canvas
+    draw: function draw(e) {
+      if (!this.isDrawing) return;
+      e.preventDefault();
+      var touch = e.touches[0];
+      this.ctx.beginPath();
+      this.ctx.moveTo(this.lastX, this.lastY);
+      this.ctx.lineTo(touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop);
+      this.ctx.stroke();
+      var _ref2 = [touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop];
+      this.lastX = _ref2[0];
+      this.lastY = _ref2[1];
+    },
+    // Dừng vẽ chữ ký
+    stopDrawing: function stopDrawing() {
+      this.isDrawing = false;
+    },
+    // Xóa chữ ký
+    clearCanvas: function clearCanvas() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    getEmptyCanvasData: function getEmptyCanvasData() {
+      var emptyCanvas = document.createElement("canvas");
+      emptyCanvas.width = this.canvas.width;
+      emptyCanvas.height = this.canvas.height;
+      return emptyCanvas.toDataURL();
+    },
+    // Lưu chữ ký
+    xacNhanChuKy: function xacNhanChuKy() {
       var _this = this;
+      console.log('Xác nhận lưu chữ ký:');
+      console.log(this.canvas);
+      var signatureDataURL = this.canvas.toDataURL();
+      console.log(signatureDataURL);
+      console.log(signatureDataURL.length);
+      console.log('Lưu thông tin chữ ký');
+      if (signatureDataURL === this.getEmptyCanvasData()) {
+        console.log("Chữ ký trống rỗng");
+        this.thongBao('error', 'Vui lòng bổ sung chữ ký vào khung bên dưới.');
+        return;
+      }
+      _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/luu-thong-tin-chu-ky', {
+        chuKy: signatureDataURL
+      }).then(function (response) {
+        console.log('Res đăng ký:');
+        console.log(response);
+        if (response.data.rc == 0) {
+          window.open('/vay-thanh-cong', '_self');
+        } else {
+          _this.thongBao('error', response.data.rd);
+        }
+        console.log(_this.thongTinCaNhan);
+      })["catch"](function (e) {});
+    },
+    layThongTinCaNhan: function layThongTinCaNhan() {
+      var _this2 = this;
       console.log('Lấy thông tin cá nhân');
       this.thongTinCaNhan = {};
       _api_rest_api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/lay-thong-tin-ca-nhan', {}).then(function (response) {
         console.log('Res đăng ký:');
         console.log(response);
         if (response.data.rc == 0) {
-          _this.thongTinCaNhan = response.data.data;
+          _this2.thongTinCaNhan = response.data.data;
         } else {
-          _this.thongBao('error', response.data.rd);
+          _this2.thongBao('error', response.data.rd);
         }
-        console.log(_this.thongTinCaNhan);
+        console.log(_this2.thongTinCaNhan);
       })["catch"](function (e) {});
     },
     hienThiHopDong: function hienThiHopDong() {
@@ -3704,7 +3820,68 @@ var render = function render() {
         return _vm.hienThiHopDong();
       }
     }
-  }, [_vm._m(2)]), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c("el-dialog", {
+  }, [_vm._m(2)]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", [_c("div", {
+    staticStyle: {
+      display: "flex",
+      "justify-content": "space-between",
+      "align-items": "center",
+      "margin-bottom": "10px"
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      "font-size": "12px"
+    }
+  }, [_vm._v("Kí vào khung bên dưới ")]), _vm._v(" "), _c("button", {
+    staticClass: "ant-btn ant-btn-default",
+    staticStyle: {
+      background: "rgb(54, 124, 76)"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.xacNhanChuKy();
+      }
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      color: "rgb(255, 255, 255)"
+    }
+  }, [_vm._v("Xác nhận chữ ký")])])]), _vm._v(" "), _c("div", {
+    staticClass: "signing",
+    staticStyle: {
+      width: "100%",
+      height: "200px"
+    }
+  }, [_c("canvas", {
+    ref: "signatureCanvas",
+    attrs: {
+      width: _vm.screenWidth - 88,
+      height: "192"
+    },
+    on: {
+      touchstart: _vm.startDrawing,
+      touchmove: _vm.draw,
+      touchend: _vm.stopDrawing,
+      touchcancel: _vm.stopDrawing
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "refresh",
+    on: {
+      click: function click($event) {
+        return _vm.clearCanvas();
+      }
+    }
+  }, [_c("span", {
+    staticClass: "ant-typography",
+    staticStyle: {
+      "text-decoration": "underline"
+    }
+  }, [_vm._v("Làm mới ")])])])])]), _vm._v(" "), _c("el-dialog", {
     attrs: {
       visible: _vm.hien_thi_hop_dong,
       width: "95%",
@@ -3730,21 +3907,21 @@ var render = function render() {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c("b", [_vm._v("ĐƠN VAY VỐN KIÊM HỢP ĐỒNG")])]), _c("h5", [_vm._v("Bên A (Bên cho vay) :\n                      CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit"), _c("br")]), _vm._v(" "), _c("p", [_vm._v("Mã số hợp đồng: "), _c("span", {
+  }, [_c("b", [_vm._v("ĐƠN VAY VỐN KIÊM HỢP ĐỒNG")])]), _c("h5", [_vm._v("Bên A (Bên cho vay) :\n                        CÔNG TY CỔ PHẦN ĐẦU TƯ TÀI CHÍNH Viet Credit"), _c("br")]), _vm._v(" "), _c("p", [_vm._v("Mã số hợp đồng: "), _c("span", {
     staticStyle: {
       color: "red"
     },
     attrs: {
       id: "codeContractSetting"
     }
-  }, [_vm._v(_vm._s(1000000000 + _vm.thongTinCaNhan.id))])]), _vm._v(" "), _c("p", [_vm._v("Địa chỉ : Nhà G32B Làng quốc tế Thăng Long, Phường Dịch Vọng, Quận Cầu Giấy, Thành\n                          phố Hà Nội, Việt Nam")]), _vm._v(" "), _c("p", [_vm._v("Mã số doanh nghiệp : 0102383351")]), _vm._v(" "), _c("p", [_vm._v("Người đại diện pháp luật : ÔNG (BÀ) ĐÀO XUÂN THIỀNG")]), _vm._v(" "), _c("p", [_vm._v("Chức vụ : Thành Viên Hội Đồng Quản Trị Kiêm giám Đốc")]), _vm._v(" "), _c("p", [_vm._v("Hai bên thống nhất việc bên A cho bên B vay tiền từ nguồn vốn của bên A theo các điều\n                          kiện dưới đây.")]), _vm._v(" "), _c("p", [_vm._v("ĐIỀU : THÔNG TIN CƠ BẢN VỀ KHÁCH HÀNG")]), _vm._v(" "), _c("p", [_vm._v("1.1 Họ Và Tên : "), _c("span", {
+  }, [_vm._v(_vm._s(1000000000 + _vm.thongTinCaNhan.id))])]), _vm._v(" "), _c("p", [_vm._v("Địa chỉ : Nhà G32B Làng quốc tế Thăng Long, Phường Dịch Vọng, Quận Cầu Giấy, Thành\n                            phố Hà Nội, Việt Nam")]), _vm._v(" "), _c("p", [_vm._v("Mã số doanh nghiệp : 0102383351")]), _vm._v(" "), _c("p", [_vm._v("Người đại diện pháp luật : ÔNG (BÀ) ĐÀO XUÂN THIỀNG")]), _vm._v(" "), _c("p", [_vm._v("Chức vụ : Thành Viên Hội Đồng Quản Trị Kiêm giám Đốc")]), _vm._v(" "), _c("p", [_vm._v("Hai bên thống nhất việc bên A cho bên B vay tiền từ nguồn vốn của bên A theo các điều\n                            kiện dưới đây.")]), _vm._v(" "), _c("p", [_vm._v("ĐIỀU : THÔNG TIN CƠ BẢN VỀ KHÁCH HÀNG")]), _vm._v(" "), _c("p", [_vm._v("1.1 Họ Và Tên : "), _c("span", {
     staticStyle: {
       color: "red"
     },
     attrs: {
       id: "nameSetting"
     }
-  }, [_vm._v(_vm._s(_vm.thongTinCaNhan.ho_ten))]), _vm._v("  Mã\n                          số hợp đồng: "), _c("span", {
+  }, [_vm._v(_vm._s(_vm.thongTinCaNhan.ho_ten))]), _vm._v("  Mã\n                            số hợp đồng: "), _c("span", {
     staticStyle: {
       color: "red"
     },
@@ -3800,7 +3977,7 @@ var render = function render() {
     attrs: {
       id: "interestRateSetting"
     }
-  }, [_vm._v(_vm._s(_vm.thongTinCaNhan.lai_suat) + "%")])]), _vm._v(" "), _c("p", [_vm._v("- Chỉ tính khoản lãi liên quan đến số tiền gốc bao gồm cả số tiền lãi trong thời hạn vay\n                          thông thường và nợ quá hạn.")]), _vm._v(" "), _c("p", [_vm._v("1.4 QUÁ HẠN")]), _vm._v(" "), _c("p", [_vm._v("- Quá hạn sẽ phát sinh lãi quá hạn và các khoản chi phí khác.")]), _vm._v(" "), _c("p", [_vm._v("- Chỉ tính việc bên B hoàn trả tiền gốc và lãi của khoản vay và thanh toán phí tín dụng\n                          duyệt nhanh, phí quản lý tài khoản.")]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.thongTinCaNhan.lai_suat) + "%")])]), _vm._v(" "), _c("p", [_vm._v("- Chỉ tính khoản lãi liên quan đến số tiền gốc bao gồm cả số tiền lãi trong thời hạn vay\n                            thông thường và nợ quá hạn.")]), _vm._v(" "), _c("p", [_vm._v("1.4 QUÁ HẠN")]), _vm._v(" "), _c("p", [_vm._v("- Quá hạn sẽ phát sinh lãi quá hạn và các khoản chi phí khác.")]), _vm._v(" "), _c("p", [_vm._v("- Chỉ tính việc bên B hoàn trả tiền gốc và lãi của khoản vay và thanh toán phí tín dụng\n                            duyệt nhanh, phí quản lý tài khoản.")]), _vm._v(" "), _c("p", {
     staticStyle: {
       "text-align": "center"
     }
@@ -3859,63 +4036,6 @@ var staticRenderFns = [function () {
       color: "rgb(255, 255, 255)"
     }
   }, [_c("strong", [_vm._v("Xem hợp đồng")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticStyle: {
-      display: "flex",
-      "justify-content": "space-between",
-      "align-items": "center",
-      "margin-bottom": "10px"
-    }
-  }, [_c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      "font-size": "12px"
-    }
-  }, [_vm._v("Kí vào khung bên dưới ")]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "/vay-thanh-cong"
-    }
-  }, [_c("button", {
-    staticClass: "ant-btn ant-btn-default",
-    staticStyle: {
-      background: "rgb(54, 124, 76)"
-    },
-    attrs: {
-      type: "button"
-    }
-  }, [_c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      color: "rgb(255, 255, 255)"
-    }
-  }, [_vm._v("Xác nhận chữ ký")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "signing",
-    staticStyle: {
-      width: "100%",
-      height: "200px"
-    }
-  }, [_c("canvas", {
-    staticClass: "canvas",
-    staticStyle: {
-      "touch-action": "none"
-    },
-    attrs: {
-      id: "canvas419",
-      "data-uid": "canvas419",
-      width: "996",
-      height: "300"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "refresh"
-  }, [_c("span", {
-    staticClass: "ant-typography",
-    staticStyle: {
-      "text-decoration": "underline"
-    }
-  }, [_vm._v("Làm mới ")])])]);
 }];
 render._withStripped = true;
 

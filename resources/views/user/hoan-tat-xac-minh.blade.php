@@ -54,18 +54,21 @@
                         </div>
                         <span class="ant-typography" style="font-size: 17px; text-align: center;">Chúc mừng</span><span
                             class="ant-typography" style="font-size: 17px; text-align: center;">Hoàn thành xác minh danh tính. Vui lòng tiếp tục</span>
-                        <div
-                            style="background: rgb(54, 124, 76); width: 70%; display: flex; justify-content: center; align-items: center; margin: 20px; border-radius: 10px; padding: 5px;">
-                            <a href="/xac-nhan-khoan-vay">
+
+
+                        <a href="/xac-nhan-khoan-vay" style="width: 100%">
+                            <div
+                                style="margin:0 auto;background: rgb(54, 124, 76); width: 70%; display: flex; justify-content: center; align-items: center; border-radius: 10px; padding: 5px;">
                                 <span class="ant-typography"
                                       style="color: rgb(255, 255, 255); font-weight: 700; font-size: 17px;">Tiếp tục</span>
-                            </a>
-                        </div>
+
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div> <!----> <!----></div>
     </div>
 @endsection
 @section("js_location")
-{{--    <script src="{{asset('js/user-xac-minh-thong-tin-ngan-hang.js?t='.Carbon\Carbon::now()->timestamp)}}"></script>--}}
+    {{--    <script src="{{asset('js/user-xac-minh-thong-tin-ngan-hang.js?t='.Carbon\Carbon::now()->timestamp)}}"></script>--}}
 @endsection

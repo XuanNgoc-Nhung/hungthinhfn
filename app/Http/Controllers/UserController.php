@@ -258,6 +258,25 @@ class UserController extends Controller
         return json_encode($res);
     }
 
+    public function luuThongTinChuKy(Request $request){
+        $check = thongTinCaNhan::where('user_id', Auth::user()->id)->first();
+        if($check){
+            $check->chu_ky = $request->chuKy;
+            $check->save();
+            $res = [
+                'rc' => '0',
+                'data' => $check,
+                'rd' => 'Xác nhận chữ ký thành công',
+            ];
+
+        }else{
+            $res = [
+                'rc' => '-1',
+                'rd' => 'Hệ thống bận. Vui lòng thử lại sau ít phút.',
+            ];
+        }
+        return json_encode($res);
+    }
     public function dangKySoTienVay(Request $request)
     {
         Log::info('Đăng ký số tiền vay');

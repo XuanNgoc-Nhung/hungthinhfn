@@ -37,6 +37,7 @@ Route::group(['prefix' => '/','middleware' => ['checkLogin']], function(){
     Route::post('/lay-thong-tin-ca-nhan', 'UserController@getThongTinCaNhan');
     Route::post('/rut-tien-ca-nhan', 'UserController@rutTienCaNhan');
     Route::post('/check-dang-ky-khoan-vay', 'UserController@checkDangKyKhoanVay');
+    Route::post('/luu-thong-tin-chu-ky', 'UserController@luuThongTinChuKy');
 });
 Route::group(['prefix' => '/admin','middleware'=>['checkLogin','checkAdmin']], function(){
     Route::get('/', 'AdminController@getHome')->name('admin.home');

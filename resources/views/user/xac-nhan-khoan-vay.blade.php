@@ -7,8 +7,7 @@
     <div id="app">
 
         <div style="padding-bottom: 80px;">
-
-            <xac-nhan-khoan-vay></xac-nhan-khoan-vay><!---->
+            <xac-nhan-khoan-vay></xac-nhan-khoan-vay>
             @include('user.layouts.chan-trang')
 
         </div>

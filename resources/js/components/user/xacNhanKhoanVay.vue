@@ -21,10 +21,14 @@
             <div class="checking-container" style="padding-bottom: 120px;"><span class="ant-typography"
                                                                                  style="font-size: 15px; text-align: center;"><strong>Xác nhận khoản vay</strong></span><br><br><span
                 class="ant-typography" style="font-size: 17px;">Khoản tiền vay : <span
-                class="ant-typography"><strong>{{ thongTinCaNhan.so_tien_vay ? thongTinCaNhan.so_tien_vay.toLocaleString() : 0 }}</strong></span> VND</span><span
+                class="ant-typography"><strong>{{
+                    thongTinCaNhan.so_tien_vay ? thongTinCaNhan.so_tien_vay.toLocaleString() : 0
+                }}</strong></span> VND</span><span
                 class="ant-typography"
                 style="font-size: 17px;">Thời hạn thanh toán : <span
-                class="ant-typography"><strong>{{ thongTinCaNhan.thoi_han_vay ? thongTinCaNhan.thoi_han_vay : 0 }} tháng</strong></span></span>
+                class="ant-typography"><strong>{{
+                    thongTinCaNhan.thoi_han_vay ? thongTinCaNhan.thoi_han_vay : 0
+                }} tháng</strong></span></span>
                 <button type="button" class="ant-btn ant-btn-round ant-btn-default"
                         @click.prevent="hienThiHopDong()"
                         style="background: rgb(255, 115, 35); margin: 10px;"><span class="ant-typography"
@@ -35,17 +39,20 @@
                     <div
                         style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                         <span class="ant-typography" style="font-size: 12px;">Kí vào khung bên dưới </span>
-                        <a href="/vay-thanh-cong">
-                            <button type="button" class="ant-btn ant-btn-default" style="background: rgb(54, 124, 76);">
-                                <span class="ant-typography" style="color: rgb(255, 255, 255);">Xác nhận chữ ký</span>
-                            </button>
-                        </a>
+                        <button type="button" @click.prevent="xacNhanChuKy()" class="ant-btn ant-btn-default" style="background: rgb(54, 124, 76);">
+                            <span class="ant-typography" style="color: rgb(255, 255, 255);">Xác nhận chữ ký</span>
+                        </button>
                     </div>
                     <div class="signing" style="width: 100%; height: 200px;">
-                        <canvas id="canvas419" data-uid="canvas419" class="canvas" width="996" height="300"
-                                style="touch-action: none;"></canvas>
+                        <canvas ref="signatureCanvas" style="" :width="screenWidth-88" height="192"
+                                @touchstart="startDrawing"
+                                @touchmove="draw"
+                                @touchend="stopDrawing"
+                                @touchcancel="stopDrawing"></canvas>
+<!--                        <canvas id="canvas419" ref="signatureCanvas" class="canvas" width="996" height="300"-->
+<!--                                style="touch-action: none;"></canvas>-->
                     </div>
-                    <div class="refresh"><span class="ant-typography"
+                    <div @click="clearCanvas()" class="refresh"><span class="ant-typography"
                                                style="text-decoration: underline;">Làm mới </span></div>
                 </div>
             </div>
@@ -133,17 +140,129 @@ Vue.use(ElementUI);
 Vue.use(Icon);
 export default {
     components: {},
+    setup() {
+        const windowSize = ref(window.innerWidth)
+        onMounted(() => {
+            window.addEventListener('resize', () => {windowSize.value = window.innerWidth} )
+        })
+        onUnmounted(() => {
+            window.removeEventListener('resize', () => {windowSize.value = window.innerWidth})
+        })
+        console.log(windowSize)
+        return {
+            windowSize
+        }
+    },
     data() {
         return {
             thongTinCaNhan: {},
             hien_thi_hop_dong: false,
+            lastX: 0,
+            lastY: 0,
+            canvas: null,
+            ctx: null,
+            isDrawing: true,
+            screenWidth:0
+
         }
     },
     mounted() {
+
+        this.screenWidth = window.innerWidth;
+        window.addEventListener('resize', this.updateScreenWidth);
         console.log('Mounted xác nhận khoản vay...');
         this.layThongTinCaNhan();
+
+        // Lấy tham chiếu đến canvas
+        this.canvas = this.$refs.signatureCanvas;
+        this.ctx = this.canvas.getContext("2d");
+
+        // Biến kiểm tra xem người dùng đang vẽ chữ ký hay không
+        this.isDrawing = false;
+
+        // Xác định các biến lưu trữ vị trí chuột trước đó
+        this.lastX = 0;
+        this.lastY = 0;
+        this.ctx.strokeStyle = 'black';
+        this.ctx.lineWidth = 2;
+
+        // Lắng nghe sự kiện khi người dùng bắt đầu vẽ chữ ký
+        this.canvas.addEventListener("mousedown", this.startDrawing);
+
+        // Lắng nghe sự kiện khi người dùng di chuyển chuột để vẽ chữ ký
+        this.canvas.addEventListener("mousemove", this.draw);
+
+        // Lắng nghe sự kiện khi người dùng ngừng vẽ chữ ký
+        this.canvas.addEventListener("mouseup", this.stopDrawing);
+        this.canvas.addEventListener("mouseout", this.stopDrawing);
+    },
+    beforeDestroy() {
+        window.removeEventListener('resize', this.updateScreenWidth);
     },
     methods: {
+        updateScreenWidth(){
+            this.screenWidth = window.innerWidth;
+        },
+        // Bắt đầu vẽ chữ ký
+        startDrawing(e) {
+            this.isDrawing = true;
+            const touch = e.touches[0];
+            [this.lastX, this.lastY] = [touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop];
+        },
+        // Vẽ điểm trên canvas
+        draw(e) {
+            if (!this.isDrawing) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.lastX, this.lastY);
+            this.ctx.lineTo(touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop);
+            this.ctx.stroke();
+            [this.lastX, this.lastY] = [touch.clientX - this.canvas.offsetLeft, touch.clientY - this.canvas.offsetTop];
+        },
+        // Dừng vẽ chữ ký
+        stopDrawing() {
+            this.isDrawing = false;
+        },
+        // Xóa chữ ký
+        clearCanvas() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        },
+        getEmptyCanvasData() {
+            const emptyCanvas = document.createElement("canvas");
+            emptyCanvas.width = this.canvas.width;
+            emptyCanvas.height = this.canvas.height;
+            return emptyCanvas.toDataURL();
+        },
+        // Lưu chữ ký
+        xacNhanChuKy() {
+            console.log('Xác nhận lưu chữ ký:')
+            console.log(this.canvas)
+            const signatureDataURL = this.canvas.toDataURL();
+            console.log(signatureDataURL);
+            console.log(signatureDataURL.length);
+            console.log('Lưu thông tin chữ ký')
+            if (signatureDataURL === this.getEmptyCanvasData()) {
+                console.log("Chữ ký trống rỗng");
+                this.thongBao('error','Vui lòng bổ sung chữ ký vào khung bên dưới.')
+                return
+            }
+            rest_api.post('/luu-thong-tin-chu-ky', {
+                chuKy:signatureDataURL
+            }).then(
+                response => {
+                    console.log('Res đăng ký:')
+                    console.log(response)
+                    if (response.data.rc == 0) {
+                        window.open('/vay-thanh-cong','_self')
+                    } else {
+                        this.thongBao('error', response.data.rd)
+                    }
+                    console.log(this.thongTinCaNhan)
+                }
+            ).catch((e) => {
+            })
+        },
         layThongTinCaNhan() {
             console.log('Lấy thông tin cá nhân')
             this.thongTinCaNhan = {};
