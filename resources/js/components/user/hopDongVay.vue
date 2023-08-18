@@ -31,7 +31,7 @@
                             <span class="ant-typography" style="font-size: 17px;">Mã hợp đồng :</span><span
                             class="ant-typography"
                             style="flex: 1 1 0%; margin-left: 20px; font-size: 17px; font-weight: 500;">{{
-                                1000000000 + thongTinCaNhan.id
+                                'HDVV0' + thongTinCaNhan.id
                             }}</span>
                         </div>
                         <div
@@ -82,7 +82,7 @@
                         style="text-align: center; "><b>ĐƠN VAY VỐN KIÊM HỢP ĐỒNG</b></h5><h5>Bên A (Bên cho vay) :
                         CÔNG TY TÀI CHÍNH CỔ PHẦN TÍN VIỆT Tên quốc tế  VIETCREDIT FINANCE JOINT STOCK COMPANY<br></h5>
                         <p>Mã số hợp đồng:&nbsp;<span id="codeContractSetting"
-                                                      style="color:red">{{ 1000000000 + thongTinCaNhan.id }}</span>
+                                                      style="color:red">{{ 'HDVV0' + thongTinCaNhan.id }}</span>
                         </p>
                         <p>Địa chỉ :&nbsp;số 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, TP.HCM</p>
                         <p>Mã số doanh nghiệp : 0102383351</p>
@@ -94,7 +94,7 @@
                         <p>1.1 Họ Và Tên :&nbsp;<span id="nameSetting"
                                                       style="color:red">{{ thongTinCaNhan.ho_ten }}</span>&nbsp;&nbsp;Mã
                             số hợp đồng:&nbsp;<span id="codeContract1Setting"
-                                                    style="color:red">{{ 1000000000 + thongTinCaNhan.id }}</span>
+                                                    style="color:red">{{ 'HDVV0' + thongTinCaNhan.id }}</span>
                         </p>
                         <p>Số CMND / CCCD :&nbsp;<span id="cccdSetting"
                                                        style="color:red">{{ thongTinCaNhan.cmnd }}</span></p>

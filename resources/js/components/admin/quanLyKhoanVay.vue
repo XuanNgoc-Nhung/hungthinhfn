@@ -53,7 +53,7 @@
                             <tbody v-if="list_data&&list_data.length">
                             <tr v-for="(item,index) in list_data" :key="index">
                                 <td class="text-center">{{ index + 1 }}</td>
-                                <td class="text-center">{{ 1000000000+item.id }}</td>
+                                <td class="text-center">{{ 'HDVV0'+item.id }}</td>
                                 <td class="text-center">{{ item.ho_ten }}</td>
                                 <td class="text-center">{{ item.thong_tin_tai_khoan.phone }}</td>
                                 <td class="text-center">{{ item.dia_chi }}</td>
