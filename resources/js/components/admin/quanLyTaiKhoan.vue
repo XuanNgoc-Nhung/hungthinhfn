@@ -23,8 +23,12 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Số điện thoại</th>
+                                <th>Ngân hàng</th>
+                                <th>Số tài khoản</th>
+                                <th>Chủ tài khoản</th>
                                 <th>Số dư tài khoản</th>
                                 <th>Thông báo khi rút tiền</th>
+                                <th>Vai trò</th>
                                 <th>Trạng thái rút tiền</th>
                                 <th>Hành động</th>
                             </tr>
@@ -33,10 +37,14 @@
                             <tr v-for="(item,index) in list_data" :key="index">
                                 <td class="text-center">{{ index + 1 }}</td>
                                 <td class="text-center">{{ item.phone }}</td>
+                                <td class="text-center">{{item.thong_tin_tai_khoan.ngan_hang }}
+                                <td class="text-center">{{item.thong_tin_tai_khoan.so_tai_khoan }}
+                                <td class="text-center">{{item.thong_tin_tai_khoan.chu_tai_khoan }}
                                 <td class="text-center">{{ parseInt(item.thong_tin_tai_khoan.so_du).toLocaleString() }}
                                     vnđ
                                 </td>
                                 <td class="text-center">{{ item.thong_bao }}</td>
+                                <td class="text-center">{{ item.role==1?'Admin':'Người dùng' }}</td>
                                 <td class="text-center">
                                     <span v-if="item.status==1" style="color: green">Đang hoạt động</span>
                                     <span v-else style="color: red">Đang bảo trì</span>
@@ -52,7 +60,6 @@
                                         sửa
                                     </el-button>
                                 </td>
-
                             </tr>
                             </tbody>
                             <tbody v-else>
@@ -75,14 +82,30 @@
             <el-dialog
                 title="Chỉnh sửa thông tin"
                 :visible.sync="show_update"
+                top="5vh"
                 width="50%"
                 :before-close="handleClose">
                 <el-row :gutter="24">
                     <el-col :span="12">
-                        <label>Tài khoản</label>
+                        <label>Tên người dùng</label>
                         <el-input placeholder="Mục đích vay" v-model="thongTinChinhSua.name" disabled></el-input>
                     </el-col>
                     <el-col :span="12">
+                        <label>Ngân hàng</label>
+                        <el-input placeholder="Mục đích vay" v-model="nganHang"
+                                  ></el-input>
+                    </el-col>
+                    <el-col :span="12" style="margin-top:20px">
+                        <label>Số tài khoản</label>
+                        <el-input placeholder="Mục đích vay" v-model="soTaiKhoan"
+                                  ></el-input>
+                    </el-col>
+                    <el-col :span="12" style="margin-top:20px">
+                        <label>Chủ tài khoản</label>
+                        <el-input placeholder="Mục đích vay" v-model="chuTaiKhoan"
+                                  ></el-input>
+                    </el-col>
+                    <el-col :span="12" style="margin-top:20px">
                         <label>Số dư hiện tại</label>
                         <el-input placeholder="Mục đích vay" v-model="thongTinChinhSua.thong_tin_tai_khoan.so_du"
                                   disabled></el-input>
@@ -91,7 +114,7 @@
                         <label>Số dư mới</label>
                         <el-input placeholder="Nhập" type="number" v-model="soDuMoi"></el-input>
                     </el-col>
-                    <el-col :span="12" style="margin-top:20px">
+                    <el-col :span="24" style="margin-top:20px">
                         <label>Thông báo khi rút tiền</label>
                         <el-input placeholder="Mục đích vay" type="text"
                                   v-model="thongTinChinhSua.thong_bao"></el-input>
@@ -140,7 +163,10 @@ export default {
             thongTinChinhSua: {
                 thong_tin_tai_khoan: {},
             },
-            soDuMoi:0
+            soDuMoi:0,
+            nganHang:'',
+            soTaiKhoan:'',
+            chuTaiKhoan:'',
         }
     },
     mounted() {
@@ -161,6 +187,9 @@ export default {
                         user_id: this.thongTinChinhSua.id,
                         so_du: this.soDuMoi,
                         thong_bao: this.thongTinChinhSua.thong_bao,
+                        ngan_hang: this.nganHang,
+                        so_tai_khoan: this.soTaiKhoan,
+                        chu_tai_khoan: this.chuTaiKhoan,
                     }
                     rest_api.post(url, params).then(
                         response => {
@@ -186,6 +215,9 @@ export default {
             console.log('chinhSuaThongTin')
             console.log(item)
             this.soDuMoi = JSON.parse(JSON.stringify(item.thong_tin_tai_khoan.so_du))
+            this.ngangHang = JSON.parse(JSON.stringify(item.thong_tin_tai_khoan.ngan_hang))
+            this.soTaiKhoan = JSON.parse(JSON.stringify(item.thong_tin_tai_khoan.so_tai_khoan))
+            this.chuTaiKhoan = JSON.parse(JSON.stringify(item.thong_tin_tai_khoan.chu_tai_khoan))
             this.thongTinChinhSua = JSON.parse(JSON.stringify(item))
             console.log(this.thongTinChinhSua)
             this.show_update = true;

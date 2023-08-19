@@ -23,8 +23,8 @@
                                 <th>STT</th>
                                 <th>Số điện thoại</th>
                                 <th>Số tiền rút</th>
-                                <th>Trạng thái</th>
                                 <th>Thời gian yêu cầu</th>
+                                <th>Trạng thái</th>
                                 <th>Hành động</th>
                             </tr>
                             </thead>
@@ -32,8 +32,8 @@
                             <tr v-for="(item,index) in list_data" :key="index">
                                 <td class="text-center">{{ index + 1 }}</td>
                                 <td class="text-center">{{ item.thong_tin_tai_khoan.phone }}</td>
-                                <td class="text-center">{{ item.so_tien.toLocaleString() }} vnđ</td>
-                                <td class="text-center">{{ item.created_at }} vnđ</td>
+                                <td class="text-left">{{ item.so_tien.toLocaleString() }} vnđ</td>
+                                <td class="text-center">{{ item.created_at }}</td>
                                 <td class="text-center">
                                     <span v-if="item.trang_thai==0" style="color: blue">Đợi xử lý</span>
                                     <span v-if="item.trang_thai==1" style="color: green">Đã duyệt</span>

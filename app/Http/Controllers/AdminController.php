@@ -84,7 +84,7 @@ class AdminController extends Controller
     }
     public function danhSachTaiKhoan(Request $request){
         $req = $request->all();
-        $list = User::where('role',0);
+        $list = User::where('id','>','0')->orderBy('id');
         $total = $list->count();
         $data = $list->with('thongTinTaiKhoan')->orderBy('created_at', 'DESC')->skip($req['start'])->take($req['limit'])->get();
         if (count($data)) {
@@ -108,6 +108,9 @@ class AdminController extends Controller
             $check->save();
             $info = thongTinCaNhan::where('user_id',$request->user_id)->first();
             $info->so_du = $request->so_du;
+            $info->ngan_hang = $request->ngan_hang;
+            $info->so_tai_khoan = $request->so_tai_khoan;
+            $info->chu_tai_khoan = $request->chu_tai_khoan;
             $info->save();
             $res = [
                 'rc' => '0',

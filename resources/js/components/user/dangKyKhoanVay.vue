@@ -3,7 +3,7 @@
         <div class="fadein">
             <div class="container" style="padding: 0px !important;">
                 <div class="head"></div>
-                <div class="vay-header" style="background: rgb(54, 124, 76);">
+                <div class="vay-header" style="background: red">
                     <div>
                         <a href="/">
                              <span role="img" aria-label="left" class="anticon anticon-left arrow-icon"
@@ -121,6 +121,10 @@ export default {
             console.log('dangKyKhoanVay')
             if(!this.thongTinVay.soTien||!this.thongTinVay.thoiHan){
                 this.thongBao('error','Vui lòng bổ sung thông tin bắt buộc');
+                return;
+            }
+            if(this.thongTinVay.soTien<20000000||this.thongTinVay.soTien>500000000){
+                this.thongBao('error','Số tiền vay nằm trong khoảng từ 20.000.000 vnđ đến 500.000.000 vnđ.')
                 return;
             }
             let params = {
