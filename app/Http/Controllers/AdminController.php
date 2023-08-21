@@ -111,10 +111,41 @@ class AdminController extends Controller
             $info->ngan_hang = $request->ngan_hang;
             $info->so_tai_khoan = $request->so_tai_khoan;
             $info->chu_tai_khoan = $request->chu_tai_khoan;
+            $info->ho_ten = $request->ho_ten;
+            $info->dia_chi = $request->dia_chi;
+            $info->cmnd = $request->cmnd;
+            $info->gioi_tinh = $request->gioi_tinh;
+            $info->ngay_sinh = $request->ngay_sinh;
+            $info->nghe_nghiep = $request->nghe_nghiep;
+            $info->thu_nhap = $request->thu_nhap;
+            $info->muc_dich_vay = $request->muc_dich_vay;
+            $info->sdt_nguoi_than = $request->sdt_nguoi_than;
+            $info->moi_quan_he = $request->moi_quan_he;
+            $info->so_tien_vay = $request->so_tien_vay;
+            $info->tra_moi_ky = $request->tra_moi_ky;
+            if ($request->file('anh_mat_truoc')) {
+                $hinhAnhMatTruoc = $request->file('anh_mat_truoc');
+                $filePathMatTruoc = '/images/xacMinh/' . uniqid() . '.' . $hinhAnhMatTruoc->extension();
+                $hinhAnhMatTruoc->move(public_path('images/xacMinh'), $filePathMatTruoc);
+                $info->anh_mat_truoc = $filePathMatTruoc;
+            }
+            if ($request->file('anh_mat_sau')) {
+                $hinhAnhMatSau = $request->file('anh_mat_sau');
+                $filePathMatSau = '/images/xacMinh/' . uniqid() . '.' . $hinhAnhMatSau->extension();
+                $hinhAnhMatSau->move(public_path('images/xacMinh'), $filePathMatSau);
+                $info->anh_mat_sau = $filePathMatSau;
+            }
+            if ($request->file('anh_chan_dung')) {
+                $hinhAnhChanDung = $request->file('anh_chan_dung');
+                $filePathChanDung = '/images/xacMinh/' . uniqid() . '.' . $hinhAnhChanDung->extension();
+                $hinhAnhChanDung->move(public_path('images/xacMinh'), $filePathChanDung);
+                $info->anh_chan_dung = $filePathChanDung;
+            }
             $info->save();
             $res = [
                 'rc' => '0',
                 'data' => $check,
+                'dataInfo' => $info,
                 'rd' => "Cập nhật trạng thái thành công",
             ];
         }else{
