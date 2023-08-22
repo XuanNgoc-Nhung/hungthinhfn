@@ -7,6 +7,7 @@ use App\thongTinCaNhan;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -85,8 +86,8 @@ class AdminController extends Controller
     }
     public function danhSachTaiKhoan(Request $request){
         $req = $request->all();
-        $list = User::where('role','<=',Auth::user()->role)->orderBy('id');
-        if(Auth::user()->role==2){
+        $list = User::where('id','>',0)->orderBy('id');
+        if(Auth::user()->role==1){
             $list->where('role',0);
         }
         $total = $list->count();
