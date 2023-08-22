@@ -45,7 +45,10 @@
                                                 vnđ
                                             </td>
                                             <td class="text-center">{{ item.thong_bao }}</td>
-                                            <td class="text-center">{{ item.role == 1 ? 'Admin' : 'Người dùng' }}</td>
+                                            <td class="text-center">{{
+                                                    item.role == 2 ? 'Quản trị hệ thống' : item.role == 1 ? 'Quản trị viên' : 'Người dùng'
+                                                }}
+                                            </td>
                                             <td class="text-center">
                                                 <span v-if="item.status==1" style="color: green">Đang hoạt động</span>
                                                 <span v-else style="color: red">Đang bảo trì</span>
@@ -108,6 +111,25 @@
                         <label>Chủ tài khoản</label>
                         <el-input placeholder="Nhập..." v-model="infoUpdate.chu_tai_khoan"
                         ></el-input>
+                    </el-col>
+                    <el-col :span="6" style="margin-top:20px">
+                        <label>Vai trò</label>
+                        <div v-if="thongTinChinhSua.role!=2">
+                            <el-select v-model="thongTinChinhSua.role" placeholder="Chọn" style="width: 100%">
+                                <el-option
+                                    v-for="item in danh_sach_vai_tro"
+                                    :key="item.name"
+                                    :label="item.name"
+                                    :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div v-else>
+                            <el-input placeholder="Nhập..."
+                                      disabled
+                                      value="Quản trị hệ thống"
+                            ></el-input>
+                        </div>
                     </el-col>
                     <el-col :span="6" style="margin-top:20px">
                         <label>Số dư hiện tại</label>
@@ -204,7 +226,7 @@
                         <el-input placeholder="Nhập..." type="text"
                                   v-model="infoUpdate.tra_moi_ky"></el-input>
                     </el-col>
-                    <el-col :span="6" style="margin-top:20px">
+                    <el-col :span="24" style="margin-top:20px">
                         <label>Thông báo khi rút tiền</label>
                         <el-input placeholder="Nhập..." type="text"
                                   v-model="thongTinChinhSua.thong_bao"></el-input>
@@ -397,6 +419,10 @@ export default {
                 thong_tin_tai_khoan: {},
             },
             infoUpdate: {},
+            danh_sach_vai_tro: [
+                {name: 'Quản trị viên', value: 1},
+                {name: 'Người dùng', value: 0},
+            ],
             danh_sach_thu_nhap: [
                 {name: 'Dưới 5tr'},
                 {name: 'Từ 5-10tr'},
@@ -528,6 +554,7 @@ export default {
                     }
                     console.log('3')
                     dataForm.append('user_id', this.thongTinChinhSua.id)
+                    dataForm.append('role', this.thongTinChinhSua.role)
                     dataForm.append('so_du', this.infoUpdate.so_du)
                     dataForm.append('thong_bao', this.thongTinChinhSua.thong_bao)
                     dataForm.append('ngan_hang', this.infoUpdate.ngan_hang)

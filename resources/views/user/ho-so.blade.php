@@ -57,7 +57,7 @@
                         @endif
                         <div style="padding: 20px;">
 
-                            @if(Auth::user()->role==1 )
+                            @if(Auth::user()->role==1||Auth::user()->role==2 )
                                 <div class="tab">
                                     <a href="{{route('admin.home')}}">
                                 <span role="img" aria-label="user" class="anticon anticon-user"

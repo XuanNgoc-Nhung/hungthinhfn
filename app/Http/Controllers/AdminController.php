@@ -6,6 +6,7 @@ use App\rutTien;
 use App\thongTinCaNhan;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -84,7 +85,10 @@ class AdminController extends Controller
     }
     public function danhSachTaiKhoan(Request $request){
         $req = $request->all();
-        $list = User::where('id','>','0')->orderBy('id');
+        $list = User::where('role','<=',Auth::user()->role)->orderBy('id');
+        if(Auth::user()->role==2){
+            $list->where('role',0);
+        }
         $total = $list->count();
         $data = $list->with('thongTinTaiKhoan')->orderBy('created_at', 'DESC')->skip($req['start'])->take($req['limit'])->get();
         if (count($data)) {
@@ -105,7 +109,7 @@ class AdminController extends Controller
         $check = User::where('id',$request->user_id)->first();
         if($check){
             $check->thong_bao = $request->thong_bao;
-            $check->save();
+            $check->role = $request->role;
             $info = thongTinCaNhan::where('user_id',$request->user_id)->first();
             $info->so_du = $request->so_du;
             $info->ngan_hang = $request->ngan_hang;
@@ -142,6 +146,7 @@ class AdminController extends Controller
                 $info->anh_chan_dung = $filePathChanDung;
             }
             $info->save();
+            $check->save();
             $res = [
                 'rc' => '0',
                 'data' => $check,
