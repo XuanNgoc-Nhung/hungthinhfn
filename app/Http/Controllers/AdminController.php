@@ -86,7 +86,7 @@ class AdminController extends Controller
     }
     public function danhSachTaiKhoan(Request $request){
         $req = $request->all();
-        $list = User::where('id','>',0)->orderBy('id');
+        $list = User::where('name', 'like', '%' . $req['key'] . '%')->orderBy('id');
         if(Auth::user()->role==1){
             $list->where('role',0);
         }

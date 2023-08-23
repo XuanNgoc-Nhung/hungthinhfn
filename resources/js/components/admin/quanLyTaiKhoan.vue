@@ -2,11 +2,17 @@
     <el-row
         :gutter="24"
         v-loading.fullscreen.lock="loading.status" class="row">
-        <!--        <el-col :sm="8" :md="4" style="text-align:center">-->
-        <!--            <label style="color: transparent">Tìm kiếm</label>-->
-        <!--            <el-button type="success" size="mini" @click.prevent="getData()" class="d-block">Tìm kiếm-->
-        <!--            </el-button>-->
-        <!--        </el-col>-->
+        <el-col :sm="8" :md="4">
+            <label>Từ khóa</label>
+            <el-input placeholder="Nhập..."
+                      v-model="keySearch"
+            ></el-input>
+        </el-col>
+        <el-col :sm="8" :md="4" style="text-align:center">
+            <label style="color: transparent">Tìm kiếm</label>
+            <el-button type="success" @click.prevent="getData()" class="d-block">Tìm kiếm
+            </el-button>
+        </el-col>
         <el-col :span="24" style="padding-top:10px">
             <div class="card">
                 <div class="card-header">
@@ -46,7 +52,8 @@
                                             </td>
                                             <td class="text-center">{{ item.thong_bao }}</td>
                                             <td class="text-center">{{
-                                                    item.role == 2 ? 'Quản trị hệ thống' : item.role == 1 ? 'Quản trị viên' : 'Người dùng'
+                                                item.role == 2 ? 'Quản trị hệ thống' : item.role == 1 ? 'Quản trị viên'
+                                                : 'Người dùng'
                                                 }}
                                             </td>
                                             <td class="text-center">
@@ -394,6 +401,7 @@ export default {
     },
     data() {
         return {
+            keySearch:'',
             anhMatTruocCCCD: [],
             anhMatSauCCCD: [],
             anhChanDungCCCD: [],
@@ -661,7 +669,7 @@ export default {
             let params = {
                 start: this.paging.start,
                 limit: this.paging.limit,
-                key: '',
+                key: this.keySearch,
             }
             this.loading.status = true;
             this.loading.text = 'Loading...'
