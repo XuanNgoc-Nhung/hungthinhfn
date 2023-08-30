@@ -23,6 +23,7 @@ mix
     .js('resources/js/admin-quan-ly-khoan-vay.js', 'public/js/admin-quan-ly-khoan-vay.js')
     .js('resources/js/admin-quan-ly-tai-khoan.js', 'public/js/admin-quan-ly-tai-khoan.js')
     .js('resources/js/admin-yeu-cau-rut-tien.js', 'public/js/admin-yeu-cau-rut-tien.js')
+    .js('resources/js/gen-so-dien-thoai.js', 'public/js/gen-so-dien-thoai.js')
     .options({
         processCssUrls: false
     })
