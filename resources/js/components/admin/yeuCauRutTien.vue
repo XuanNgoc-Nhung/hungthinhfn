@@ -93,7 +93,7 @@ export default {
                 total: 0,
                 start: 0,
                 limit: 10,
-                currentPage: 1
+                currentPage: 3
             },
         }
     },
@@ -110,7 +110,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+
             rest_api.post('/admin/cap-nhat-trang-thai-rut-tien', params).then(
                 response => {
                     if (response.data.rc == 0) {
@@ -126,6 +126,7 @@ export default {
         },
         layLai(e) {
             console.log('onPagingClick')
+            console.log(e)
             this.paging.start = e.start;
             this.paging.limit = e.limit;
             this.paging.currentPage = e.currentPage;
@@ -142,7 +143,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+            //
             rest_api.post('/admin/danh-sach-yeu-cau-rut-tien', params).then(
                 response => {
                     if (response.data.rc == 0) {

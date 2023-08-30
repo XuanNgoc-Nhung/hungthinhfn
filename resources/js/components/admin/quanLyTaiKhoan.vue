@@ -642,7 +642,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+
             rest_api.post('/admin/cap-nhat-trang-thai-tai-khoan', params).then(
                 response => {
                     if (response.data.rc == 0) {
@@ -674,7 +674,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+
             rest_api.post('/admin/danh-sach-tai-khoan', params).then(
                 response => {
                     if (response.data.rc == 0) {

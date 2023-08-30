@@ -14,7 +14,7 @@
 
 Auth::routes();
 Route::group(['prefix' => '/','middleware' => ['checkLogin']], function(){
-    Route::get('/home', 'UserController@getHome')->name('user.home');
+    Route::get('/', 'UserController@getHome')->name('user.home');
     Route::get('/ho-so', 'UserController@getPageHoSo')->name('user.hoSo');
     Route::get('/bank-info', 'UserController@getBankInfo')->name('user.bankInfo');
     Route::get('/user-info', 'UserController@getUserInfo')->name('user.userInfo');
@@ -57,6 +57,6 @@ Route::get('/dang-nhap', 'UserController@getDangNhap')->name('user.dangNhap');
 Route::post('/dang-ky-tai-khoan', 'UserController@dangKyTaiKhoan');
 Route::post('/dang-nhap-tai-khoan', 'UserController@dangNhapTaiKhoan');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});

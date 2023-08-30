@@ -161,7 +161,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+
             rest_api.post('/admin/cap-nhat-trang-thai-yeu-cau-vay', params).then(
                 response => {
                     if (response.data.rc == 0) {
@@ -193,7 +193,7 @@ export default {
             this.loading.status = true;
             this.loading.text = 'Loading...'
             this.list_data = [];
-            this.paging.total = 0
+
             rest_api.post('/admin/danh-sach-yeu-cau-vay', params).then(
                 response => {
                     if (response.data.rc == 0) {
